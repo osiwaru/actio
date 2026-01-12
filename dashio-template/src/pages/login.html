@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashio - Login">
+  <title>Login | Dashio</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body class="bg-body-tertiary">
+  
+  <div class="min-vh-100 d-flex align-items-center justify-content-center p-3">
+    <div class="w-100" style="max-width: 400px;">
+      
+      <!-- Logo -->
+      <div class="text-center mb-4">
+        <a href="../" class="d-inline-flex align-items-center text-decoration-none mb-3">
+          <span class="fs-3 fw-bold text-primary">Dashio</span>
+        </a>
+        <h1 class="h4 mb-1">Welcome back</h1>
+        <p class="text-body-secondary">Sign in to your account to continue</p>
+      </div>
+      
+      <!-- Login Card -->
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <form>
+            
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+              </div>
+            </div>
+            
+            <!-- Password -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="password" class="form-label mb-0">Password</label>
+                <a href="#" class="small text-decoration-none">Forgot password?</a>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Remember me -->
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me for 30 days
+                </label>
+              </div>
+            </div>
+            
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary w-100 mb-3">
+              Sign in
+            </button>
+            
+            <!-- Divider -->
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <hr class="flex-grow-1">
+              <span class="text-body-secondary small">or continue with</span>
+              <hr class="flex-grow-1">
+            </div>
+            
+            <!-- Social Login -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-secondary flex-grow-1">
+                <i class="bi bi-google me-2"></i>Google
+              </button>
+              <button type="button" class="btn btn-outline-secondary flex-grow-1">
+                <i class="bi bi-github me-2"></i>GitHub
+              </button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      
+      <!-- Sign up link -->
+      <p class="text-center mt-4 mb-0 text-body-secondary">
+        Don't have an account? <a href="#" class="text-decoration-none">Sign up</a>
+      </p>
+      
+      <!-- Theme toggle -->
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-link text-body-secondary p-0" data-toggle="theme">
+          <i class="bi bi-moon-fill me-1"></i>
+          <small>Toggle theme</small>
+        </button>
+      </div>
+      
+    </div>
+  </div>
+  
+  <script type="module" src="../js/main.js"></script>
+  <script>
+    // Password toggle
+    document.getElementById('togglePassword')?.addEventListener('click', function() {
+      const password = document.getElementById('password')
+      const icon = this.querySelector('i')
+      
+      if (password.type === 'password') {
+        password.type = 'text'
+        icon.classList.remove('bi-eye')
+        icon.classList.add('bi-eye-slash')
+      } else {
+        password.type = 'password'
+        icon.classList.remove('bi-eye-slash')
+        icon.classList.add('bi-eye')
+      }
+    })
+  </script>
+</body>
+</html>

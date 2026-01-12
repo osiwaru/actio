@@ -1,0 +1,16 @@
+{
+    "roles": {
+        "admin@company.com": "admin"
+    },
+    "default_role": "viewer",
+    "last_archive_year": null,
+    "audit_types": [
+        "Interní audit",
+        "Certifikační audit",
+        "Zákaznický audit",
+        "Procesní audit",
+        "Neohlášená kontrola"
+    ],
+    "processes": [],
+    "process_owners": []
+}

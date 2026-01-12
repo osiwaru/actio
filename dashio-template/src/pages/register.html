@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashio - Register">
+  <title>Register | Dashio</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body class="bg-body-tertiary">
+
+  <div class="min-vh-100 d-flex align-items-center justify-content-center p-3">
+    <div class="w-100" style="max-width: 400px;">
+
+      <!-- Logo -->
+      <div class="text-center mb-4">
+        <a href="../" class="d-inline-flex align-items-center text-decoration-none mb-3">
+          <span class="fs-3 fw-bold text-primary">Dashio</span>
+        </a>
+        <h1 class="h4 mb-1">Create an account</h1>
+        <p class="text-body-secondary">Get started with your free account</p>
+      </div>
+
+      <!-- Register Card -->
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <form>
+
+            <!-- Name -->
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="John" required>
+              </div>
+              <div class="col-6">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="form-text">Must be at least 8 characters</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+              </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary w-100 mb-3">
+              Create account
+            </button>
+
+            <!-- Divider -->
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <hr class="flex-grow-1">
+              <span class="text-body-secondary small">or continue with</span>
+              <hr class="flex-grow-1">
+            </div>
+
+            <!-- Social Login -->
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-outline-secondary flex-grow-1">
+                <i class="bi bi-google me-2"></i>Google
+              </button>
+              <button type="button" class="btn btn-outline-secondary flex-grow-1">
+                <i class="bi bi-github me-2"></i>GitHub
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Sign in link -->
+      <p class="text-center mt-4 mb-0 text-body-secondary">
+        Already have an account? <a href="./login.html" class="text-decoration-none">Sign in</a>
+      </p>
+
+      <!-- Theme toggle -->
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-link text-body-secondary p-0" data-toggle="theme">
+          <i class="bi bi-moon-fill me-1"></i>
+          <small>Toggle theme</small>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+  <script>
+    // Password toggle
+    document.getElementById('togglePassword')?.addEventListener('click', function() {
+      const password = document.getElementById('password')
+      const icon = this.querySelector('i')
+
+      if (password.type === 'password') {
+        password.type = 'text'
+        icon.classList.remove('bi-eye')
+        icon.classList.add('bi-eye-slash')
+      } else {
+        password.type = 'password'
+        icon.classList.remove('bi-eye-slash')
+        icon.classList.add('bi-eye')
+      }
+    })
+  </script>
+</body>
+</html>

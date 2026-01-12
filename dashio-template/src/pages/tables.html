@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashio - Tables">
+  <title>Tables | Dashio</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+  
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-body-tertiary border-end">
+      <div class="d-flex flex-column h-100">
+        
+        <!-- Sidebar Header -->
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+          <a href="../" class="d-flex align-items-center text-decoration-none">
+            <span class="fs-5 fw-semibold text-primary">Dashio</span>
+          </a>
+          <button type="button" class="btn btn-link text-body d-lg-none p-0" data-dismiss="sidebar" aria-label="Close sidebar">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-nav flex-grow-1 p-3">
+          <ul class="nav flex-column gap-1">
+            <li class="nav-item">
+              <a class="nav-link" href="../">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Pages</li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="./tables.html">
+                <i class="bi bi-table"></i>
+                <span>Tables</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./forms.html">
+                <i class="bi bi-ui-checks"></i>
+                <span>Forms</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./charts.html">
+                <i class="bi bi-bar-chart-line"></i>
+                <span>Charts</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Apps</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./notifications.html">
+                <i class="bi bi-bell"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./calendar.html">
+                <i class="bi bi-calendar3"></i>
+                <span>Calendar</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./kanban.html">
+                <i class="bi bi-kanban"></i>
+                <span>Kanban</span>
+              </a>
+            </li>
+
+            <li class="nav-header">Account</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./profile.html">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./settings.html">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- Sidebar Footer -->
+        <div class="p-3 border-top">
+          <div class="d-flex align-items-center gap-3">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="flex-grow-1 min-w-0">
+              <div class="fw-medium text-truncate">Admin User</div>
+              <div class="small text-body-secondary text-truncate">admin@dashio.com</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      
+      <!-- Top Header -->
+      <header class="sticky-top bg-body border-bottom">
+        <div class="d-flex align-items-center justify-content-between px-3 px-lg-4 py-2">
+          <button type="button" class="btn btn-link text-body d-lg-none p-0 me-3" data-toggle="sidebar" aria-label="Toggle sidebar">
+            <i class="bi bi-list fs-4"></i>
+          </button>
+          <div class="flex-grow-1 me-3" style="max-width: 400px;">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+              <input type="search" class="form-control border-start-0" placeholder="Search...">
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <!-- Color switcher (demo mode only) -->
+            <div class="dropdown color-switcher-dropdown">
+              <button type="button" class="btn btn-link text-body p-2" data-bs-toggle="dropdown" aria-expanded="false" title="Change color">
+                <i class="bi bi-palette"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 200px;">
+                <div class="small fw-medium mb-2">Primary Color</div>
+                <div class="d-flex flex-wrap gap-2" id="colorSwitcher">
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch active" data-color="#4f46e5" style="width: 28px; height: 28px; background: #4f46e5;" title="Indigo"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#0d9488" style="width: 28px; height: 28px; background: #0d9488;" title="Teal"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#e11d48" style="width: 28px; height: 28px; background: #e11d48;" title="Rose"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#059669" style="width: 28px; height: 28px; background: #059669;" title="Emerald"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#ea580c" style="width: 28px; height: 28px; background: #ea580c;" title="Orange"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#7c3aed" style="width: 28px; height: 28px; background: #7c3aed;" title="Violet"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#2563eb" style="width: 28px; height: 28px; background: #2563eb;" title="Blue"></button>
+                  <button type="button" class="btn p-0 border-2 rounded-circle color-swatch" data-color="#475569" style="width: 28px; height: 28px; background: #475569;" title="Slate"></button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-link text-body p-2" data-toggle="theme" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle theme">
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <div class="dropdown">
+              <button type="button" class="btn btn-link p-0" data-bs-toggle="dropdown">
+                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Page Content -->
+      <main class="p-3 p-lg-4">
+        
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h3 mb-1">Tables</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="../">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tables</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        
+        <!-- Basic Table -->
+        <div class="card mb-4">
+          <div class="card-header bg-transparent">
+            <h5 class="card-title mb-0">Basic Table</h5>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Admin</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>Editor</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Bob Johnson</td>
+                    <td>bob@example.com</td>
+                    <td>User</td>
+                    <td><span class="badge bg-secondary">Inactive</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Striped Table -->
+        <div class="card mb-4">
+          <div class="card-header bg-transparent">
+            <h5 class="card-title mb-0">Striped Table</h5>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-striped align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="bg-primary bg-opacity-10 rounded p-2">
+                          <i class="bi bi-box text-primary"></i>
+                        </div>
+                        <span class="fw-medium">Product A</span>
+                      </div>
+                    </td>
+                    <td>Electronics</td>
+                    <td>$199.00</td>
+                    <td>124</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="bg-success bg-opacity-10 rounded p-2">
+                          <i class="bi bi-box text-success"></i>
+                        </div>
+                        <span class="fw-medium">Product B</span>
+                      </div>
+                    </td>
+                    <td>Clothing</td>
+                    <td>$49.00</td>
+                    <td>532</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="bg-warning bg-opacity-10 rounded p-2">
+                          <i class="bi bi-box text-warning"></i>
+                        </div>
+                        <span class="fw-medium">Product C</span>
+                      </div>
+                    </td>
+                    <td>Home & Garden</td>
+                    <td>$299.00</td>
+                    <td>89</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></button>
+                      <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hoverable Table with Selection -->
+        <div class="card">
+          <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0">Hoverable Table with Selection</h5>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="bi bi-funnel me-1"></i>Filter
+              </button>
+              <button class="btn btn-sm btn-primary">
+                <i class="bi bi-plus me-1"></i>Add
+              </button>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col" style="width: 40px;">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="selectAll">
+                      </div>
+                    </th>
+                    <th scope="col">User</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Join Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; font-size: 0.8rem;">AS</div>
+                        <div>
+                          <div class="fw-medium">Alice Sanders</div>
+                          <small class="text-body-secondary">Software Engineer</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>alice@company.com</td>
+                    <td>Engineering</td>
+                    <td>Jan 15, 2024</td>
+                    <td><span class="badge bg-success-subtle text-success">Active</span></td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View Profile</a></li>
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; font-size: 0.8rem;">MT</div>
+                        <div>
+                          <div class="fw-medium">Michael Thompson</div>
+                          <small class="text-body-secondary">Product Manager</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>michael@company.com</td>
+                    <td>Product</td>
+                    <td>Mar 22, 2024</td>
+                    <td><span class="badge bg-success-subtle text-success">Active</span></td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View Profile</a></li>
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; font-size: 0.8rem;">SL</div>
+                        <div>
+                          <div class="fw-medium">Sarah Lee</div>
+                          <small class="text-body-secondary">UX Designer</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>sarah@company.com</td>
+                    <td>Design</td>
+                    <td>Jun 08, 2024</td>
+                    <td><span class="badge bg-warning-subtle text-warning">Pending</span></td>
+                    <td class="text-end">
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-link text-body" data-bs-toggle="dropdown">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">View Profile</a></li>
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent d-flex align-items-center justify-content-between">
+            <div class="text-body-secondary small">Showing 1 to 3 of 50 entries</div>
+            <nav>
+              <ul class="pagination pagination-sm mb-0">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        
+      </main>
+      
+      <!-- Footer -->
+      <footer class="py-3 px-3 px-lg-4 border-top mt-auto">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="text-body-secondary small">&copy; 2025 Dashio. All rights reserved.</div>
+          <ul class="nav gap-3">
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Privacy</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Terms</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-0 text-body-secondary small">Support</a></li>
+          </ul>
+        </div>
+      </footer>
+      
+    </div>
+  </div>
+  
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+# ===========================================
+# ACTIO - .gitignore
+# ===========================================
+
+# Environment files (E02 - CRITICAL)
+.env
+.env.local
+.env.*.local
+
+# Data directory (contains user data)
+# Keep template/example files, ignore actual data
+/data/*.json
+!/data/*.example.json
+/data/attachments/*
+!/data/attachments/.gitkeep
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs (N02)
+*.log
+/logs/
+
+# Backup files (N03)
+*.bak
+*.old
+*.sql
+*.tar
+*.gz
+
+# Composer
+/vendor/
+
+# Node (dashio-template)
+/dashio-template/node_modules/
+/dashio-template/dist/
+
+# Cache
+/cache/
+*.cache
+
+# Temporary files
+/tmp/
+*.tmp
