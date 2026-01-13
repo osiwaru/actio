@@ -204,6 +204,46 @@ $isOverdue = !$isComplete && !empty($action['deadline']) && $action['deadline'] 
             </div>
         </div>
 
+        <!-- Attachments Card -->
+        <div class="card mb-4">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0"><i class="bi bi-paperclip me-2"></i>Přílohy</h5>
+                <span class="badge bg-secondary"><?= count($attachments ?? []) ?></span>
+            </div>
+            <div class="card-body">
+                <?php if (!empty($attachments)): ?>
+                    <div class="list-group list-group-flush">
+                        <?php foreach ($attachments as $att): ?>
+                            <?php
+                            $icon = \Actio\Models\Attachment::getIconForMime($att['mime_type']);
+                            $size = \Actio\Models\Attachment::formatSize($att['size']);
+                            ?>
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi <?= $icon ?> fs-4 me-3 text-primary"></i>
+                                    <div>
+                                        <div class="fw-medium"><?= h($att['filename']) ?></div>
+                                        <small class="text-body-secondary">
+                                            <?= $size ?>
+                                            <?php if (!empty($att['description'])): ?>
+                                                · <?= h($att['description']) ?>
+                                            <?php endif; ?>
+                                        </small>
+                                    </div>
+                                </div>
+                                <a href="<?= url('/attachments/' . $att['id'] . '/download') ?>"
+                                    class="btn btn-sm btn-outline-primary" title="Stáhnout">
+                                    <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <p class="text-body-secondary mb-0">Žádné přílohy.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+
         <!-- Details Card -->
         <div class="card mb-4">
             <div class="card-header bg-transparent">

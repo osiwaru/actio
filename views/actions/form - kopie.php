@@ -78,7 +78,7 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
 <?php endif; ?>
 
 <!-- Main form (contains only hidden fields, inputs use form="action-form" attribute) -->
-<form id="action-form" action="<?= $formAction ?>" method="POST" enctype="multipart/form-data">
+<form id="action-form" action="<?= $formAction ?>" method="POST">
     <?= csrfField() ?>
     <?php if ($isEdit): ?>
         <input type="hidden" name="_method" value="PUT">
@@ -353,7 +353,7 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                     <!-- Upload Form -->
                     <div class="border-top pt-3 mt-3">
                         <h6 class="mb-2"><i class="bi bi-upload me-1"></i>Nahrát přílohu</h6>
-                        <form id="upload-form" action="<?= url('/actions/' . $action['id'] . '/attachments') ?>" method="POST"
+                        <form action="<?= url('/actions/' . $action['id'] . '/attachments') ?>" method="POST"
                             enctype="multipart/form-data">
                             <?= csrfField() ?>
                             <div class="mb-2">
@@ -370,20 +370,6 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                             </button>
                         </form>
                     </div>
-                </div>
-            </div>
-            </div>
-        <?php else: ?>
-            <!-- Attachments Info (Create Mode) -->
-            <div class="card mb-4">
-                <div class="card-header bg-transparent">
-                    <h5 class="card-title mb-0"><i class="bi bi-paperclip me-2"></i>Přílohy</h5>
-                </div>
-                <div class="card-body text-center py-4">
-                    <i class="bi bi-info-circle text-primary fs-3 mb-2 d-block"></i>
-                    <p class="text-body-secondary mb-0">
-                        Přílohy bude možné nahrát až po vytvoření akce.
-                    </p>
                 </div>
             </div>
         <?php endif; ?>
@@ -406,88 +392,6 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                     break;
                 }
             }
-        }
-    });
-
-    // AJAX Upload Handling
-    const uploadForm = document.getElementById('upload-form');
-    if (uploadForm) {
-        uploadForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>Nahrávám...';
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: new FormData(this),
-                headers: {
-                    'Accept': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    return response.json().then(err => { throw new Error(err.message || 'Chyba nahrávání'); });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    location.reload(); // Reload page to show new attachment
-                } else {
-                    throw new Error(data.message || 'Neznámá chyba');
-                }
-            })
-            .catch(error => {
-                console.error('Upload error:', error);
-                alert(error.message || 'Došlo k chybě při nahrávání souboru.');
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-            });
-        });
-    }
-
-    // AJAX Delete Handling
-    document.querySelectorAll('form[action*="/attachments/"][method="POST"]').forEach(form => {
-        if (form.querySelector('input[name="_method"][value="DELETE"]')) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (!confirm('Opravdu smazat přílohu?')) return;
-                
-                const btn = this.querySelector('button[type="submit"]');
-                const originalHtml = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>';
-
-                fetch(this.action, {
-                    method: 'POST',
-                    body: new FormData(this),
-                    headers: {
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        location.reload();
-                    } else {
-                        alert('Chyba: ' + (data.message || 'Nepodařilo se smazat přílohu'));
-                        btn.disabled = false;
-                        btn.innerHTML = originalHtml;
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert('Chyba při komunikaci se serverem.');
-                    btn.disabled = false;
-                    btn.innerHTML = originalHtml;
-                });
-            });
         }
     });
 </script>

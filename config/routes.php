@@ -24,10 +24,17 @@ $router->delete('/actions/{id}', 'ActionController@destroy');
 $router->post('/actions/{id}/archive', 'ActionController@archive');
 
 // Audit Sessions (Auditní sezení)
-// $router->get('/audit-sessions', 'AuditSessionController@index');
-// $router->get('/audit-sessions/create', 'AuditSessionController@create');
-// $router->post('/audit-sessions', 'AuditSessionController@store');
-// $router->get('/audit-sessions/{id}', 'AuditSessionController@show');
+$router->get('/audit-sessions', 'AuditSessionController@index');
+$router->get('/audit-sessions/create', 'AuditSessionController@create');
+$router->post('/audit-sessions', 'AuditSessionController@store');
+$router->get('/audit-sessions/{id}', 'AuditSessionController@show');
+$router->get('/audit-sessions/{id}/edit', 'AuditSessionController@edit');
+$router->put('/audit-sessions/{id}', 'AuditSessionController@update');
+
+// Attachments (Přílohy)
+$router->post('/actions/{id}/attachments', 'AttachmentController@store');
+$router->get('/attachments/{id}/download', 'AttachmentController@download');
+$router->delete('/attachments/{id}', 'AttachmentController@destroy');
 
 // Archive
 // $router->get('/archive', 'ArchiveController@index');

@@ -19,6 +19,8 @@ use Actio\Core\Request;
 use Actio\Core\Response;
 use Actio\Core\Auth;
 use Actio\Services\ActionService;
+use Actio\Services\AuditSessionService;
+use Actio\Services\AttachmentService;
 
 class ActionController
 {
@@ -51,9 +53,18 @@ class ActionController
      */
     public function create(array $params = []): void
     {
-        $errors = flash('errors') ? json_decode(flash('errors'), true) : [];
-        $oldInput = flash('old_input') ? json_decode(flash('old_input'), true) : [];
+        $errorsJson = flash('errors');
+        $errors = $errorsJson ? json_decode($errorsJson, true) : [];
+        $oldInputJson = flash('old_input');
+        $oldInput = $oldInputJson ? json_decode($oldInputJson, true) : [];
         $processData = self::getProcesses();
+        $auditSessionService = new AuditSessionService();
+
+        // Handle preselected audit session from URL
+        $preselectedSessionId = $this->request->query('audit_session_id');
+        if ($preselectedSessionId && empty($oldInput['audit_session_id'])) {
+            $oldInput['audit_session_id'] = (int) $preselectedSessionId;
+        }
 
         Response::viewWithLayout('actions/form', [
             'action' => null,
@@ -62,6 +73,7 @@ class ActionController
             'isEdit' => false,
             'processes' => $processData['processes'],
             'processOwners' => $processData['owners'],
+            'auditSessions' => $auditSessionService->getAll(),
             'currentPage' => 'actions',
         ], 200, 'Nová akce | ACTIO');
     }
@@ -91,6 +103,7 @@ class ActionController
             $action = $this->actionService->create($input);
 
             flash('success', 'Akce byla úspěšně vytvořena.');
+
             Response::redirect(url('/actions/' . $action['id']));
         } catch (\InvalidArgumentException $e) {
             flash('errors', $e->getMessage());
@@ -113,8 +126,13 @@ class ActionController
             return;
         }
 
+        // Get attachments for this action
+        $attachmentService = new AttachmentService();
+        $attachments = $attachmentService->getForAction($id);
+
         Response::viewWithLayout('actions/detail', [
             'action' => $action,
+            'attachments' => $attachments,
             'currentPage' => 'actions',
         ], 200, 'Akce #' . $action['number'] . ' | ACTIO');
     }
@@ -133,9 +151,13 @@ class ActionController
             return;
         }
 
-        $errors = flash('errors') ? json_decode(flash('errors'), true) : [];
-        $oldInput = flash('old_input') ? json_decode(flash('old_input'), true) : [];
+        $errorsJson = flash('errors');
+        $errors = $errorsJson ? json_decode($errorsJson, true) : [];
+        $oldInputJson = flash('old_input');
+        $oldInput = $oldInputJson ? json_decode($oldInputJson, true) : [];
         $processData = self::getProcesses();
+        $auditSessionService = new AuditSessionService();
+        $attachmentService = new AttachmentService();
 
         Response::viewWithLayout('actions/form', [
             'action' => $action,
@@ -144,6 +166,8 @@ class ActionController
             'isEdit' => true,
             'processes' => $processData['processes'],
             'processOwners' => $processData['owners'],
+            'auditSessions' => $auditSessionService->getAll(),
+            'attachments' => $attachmentService->getForAction($id),
             'currentPage' => 'actions',
         ], 200, 'Upravit akci #' . $action['number'] . ' | ACTIO');
     }
