@@ -72,7 +72,10 @@ $error = flash('error');
                     <thead class="table-light">
                         <tr>
                             <th scope="col" style="width: 60px;">#</th>
-                            <th scope="col">Zjištění</th>
+                            <th scope="col" style="width: 35%;">Zjištění</th>
+                            <th scope="col" style="width: 110px;">Termín plánu</th>
+                            <th scope="col" style="width: 120px;">Proces</th>
+                            <th scope="col" style="width: 150px;">Majitel procesu</th>
                             <th scope="col" style="width: 150px;">Odpovědný</th>
                             <th scope="col" style="width: 110px;">Termín</th>
                             <th scope="col" style="width: 160px;">PDCA</th>
@@ -99,13 +102,32 @@ $error = flash('error');
                                         <?php if (mb_strlen($action['finding']) > 80): ?>...
                                         <?php endif; ?>
                                     </div>
-                                    <?php if (!empty($action['rating'])): ?>
-                                        <small class="text-body-secondary">
+                                    <small class="text-body-secondary">
+                                        <?php if (!empty($action['audit_session_id']) && isset($auditSessionMap[$action['audit_session_id']])): ?>
+                                            <?= h($auditSessionMap[$action['audit_session_id']]) ?>
+                                            <?php if (!empty($action['rating'])): ?>
+                                                &bull; <?= h($action['rating']) ?>
+                                            <?php endif; ?>
+                                        <?php elseif (!empty($action['rating'])): ?>
                                             <?= h($action['rating']) ?>
-                                        </small>
+                                        <?php endif; ?>
+                                    </small>
+                                </td>
+                                <td>
+                                    <?php if (!empty($action['deadline_plan'])): ?>
+                                        <?= (new DateTime($action['deadline_plan']))->format('d.m.Y') ?>
+                                    <?php else: ?>
+                                        -
                                     <?php endif; ?>
                                 </td>
                                 <td>
+                                    <?= h($action['process'] ?? '-') ?>
+                                </td>
+                                <td>
+                                    <?= h($action['process_owner'] ?? '-') ?>
+                                </td>
+                                <td>
+
                                     <?= h($action['responsible'] ?? '-') ?>
                                 </td>
                                 <td>

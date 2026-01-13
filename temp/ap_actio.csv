@@ -1,0 +1,124 @@
+﻿audit_session_id;Hodnocení;Datum zjištění;Termín plánu;Kapitola normy;Proces;Majitel procesu;Zjištění;Popis;Příčina problému;Opatření;Odpovědný za realizaci;Termín realizace;P;D;C;A
+1;Neshoda;08.12.2025;20.02.2026;2.1;Vývoj;;Proces eskalace v sériovém umístění – proces vytvořen pouze směrem k dodavatelům.;Projektové řízení ve vývojové fázi musí zahrnovat definovaný eskalační postup s jasně stanovenými úrovněmi eskalace, kritérii pro spuštění eskalace (zpoždění, technické problémy, překročení rozpočtu), časovými limity pro reakci na jednotlivých úrovních a určením odpovědných osob. Bez tohoto postupu není zajištěno, že se problémy dostanou včas ke kompetentním osobám s rozhodovací pravomocí.;An escalation process was performed on an ad-hoc basis when required in the past, however, the escalation procedure was not formally defined and documented in a controlled procedure/work instruction. As a result, no standardized escalation procedure for the development phase was implemented, and the serial escalation process was only established towards the supplier side, without a documented escalation path within the serial production location.;A controlled procedure (work instruction) for the escalation process has been created and implemented. The procedure covers the development phase and serial production, including defined escalation triggers, responsibilities, escalation levels, timelines, documentation requirements, and interfaces. ;Loehnert;;1;1;0;0
+1;Neshoda;08.12.2025;20.02.2026;"2.2*
+OCM";Vývoj;;Záznamy pro výpočet kapacity týmu nebyly předloženy.;Pro plánování projektu musí být k dispozici záznamy dokládající výpočet kapacity týmu – tedy kolik lidí s jakou kvalifikací je potřeba v jednotlivých fázích projektu, jaká je jejich aktuální vytíženost a zda je kapacita dostatečná pro splnění termínů. Tyto záznamy prokazují, že organizace systematicky plánuje zdroje a včas identifikuje případné přetížení nebo nedostatek personálu.;APQP team nomination form does not verify availability of team members considering their concurrent project workload.;Update form FB 051-QA-OCM to include concurrent project documentation and formal resource capacity assessment before project approval.;Veselý;06.01.2026;1;1;1;1
+1;Neshoda;08.12.2025;20.02.2026;"2.2*
+ODG";Vývoj;;Záznamy pro výpočet kapacity týmu nebyly předloženy.;Pro plánování projektu musí být k dispozici záznamy dokládající výpočet kapacity týmu – tedy kolik lidí s jakou kvalifikací je potřeba v jednotlivých fázích projektu, jaká je jejich aktuální vytíženost a zda je kapacita dostatečná pro splnění termínů. Tyto záznamy prokazují, že organizace systematicky plánuje zdroje a včas identifikuje případné přetížení nebo nedostatek personálu.;Given the size and structure of the company, the planning of resources is done by departement heads based on project requirements, available staff and competence matrix. ;For specific projects, the necessary resources are assessed and confirmed by department heads and management during both the inquiry and implementation phases. The evidence is documented on the project assignment sheet FB_107.;Doepp;09.01.2026;1;1;1;1
+1;Neshoda;08.12.2025;20.02.2026;3.2*;Vývoj;;Hodnocení proveditelnosti mezioborovými odděleními nebylo doloženo záznamem o proveditelnosti. Chybí hodnocení od oddělení R&D, Prodeje/Nákupu, LOG.;Hodnocení proveditelnosti musí být provedeno všemi dotčenými odděleními (R&D, prodej/nákup, logistika, výroba, kvalita) a každé oddělení musí svůj závěr dokumentovat v záznamu o proveditelnosti. Nejde jen o to, zda je produkt technicky vyrobitelný, ale zda jsou zajištěny materiály, kapacity, logistické toky a zda je projekt ekonomicky smysluplný. Chybějící podpisy nebo stanoviska jednotlivých oddělení znamenají, že rozhodnutí o přijetí projektu nebylo učiněno na základě kompletních informací.;It is not considered for all stakeholders, such as logistics and product engineering from the remote location (OILES Deutschland).;Include a complete cross-functional team in the same way as the team nomination.;Dlask;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;3.2*;Vývoj;;Ne ve všech případech je prováděna interní proveditelnost, ale pouze zákaznická.;Interní hodnocení proveditelnosti musí být provedeno vždy, bez ohledu na to, zda zákazník požaduje vyplnění svého formuláře. Zákaznická feasibility study slouží k uspokojení požadavků zákazníka, ale interní formulář pokrývá specifika organizace (vlastní kapacity, procesy, technologie, náklady), které zákaznický formulář nemusí adresovat. Interní feasibility je podkladem pro rozhodnutí organizace, zda projekt přijmout – zákaznický formulář toto nenahrazuje.;"In total, three feasibility studies could be prepared in the following forms:
+
+OILES Czech Manufacturing
+OILES Deutschland
+Customer:
+
+This may introduce a non-systemic approach involving transfer errors and omission.";"Define the workflow for preparing the feasibility study in the form of OILES Czech Manufacturing. If the customer requires their own feasibility study, this should be prepared in the second step based on the feasibility of the production plant.
+
+The audit log should be added to the current feasibility form to indicate whether or not a customer's form was used at a later stage.";Dlask;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;4.1*;Vývoj;;PFMEA není hodnocena podle poslední revize metodiky z roku 2019, jak požaduje Marelli.;Zákazník Marelli původně požadoval hodnocení PFMEA dle harmonizované metodiky AIAG-VDA z roku 2019. Během auditu však bylo dohodnuto, že pro tento projekt je akceptovatelná současná verze PFMEA dle AIAG. Povinnost přechodu na novou metodiku vzniká až v případě, že zákazník dodá FMEA zpracovanou dle harmonizované VDA-AIAG – pak je nutné sjednotit přístup. Tuto dohodu je vhodné zdokumentovat jako formální odchylku nebo zápis z jednání.;All the risks for the PSB are evaluated per the AIAG 4th edition. Up to now OILES did not identified a benefit to upgrade to AIAG  & VDA 1st edition.;OILES will consider to implement the  AIAG  & VDA 1st edition with new project not relevant to the PSB portofolio.;Veselý;06.01.2026;1;1;1;1
+1;Neshoda;08.12.2025;20.02.2026;4.1*;Vývoj;;V PFMEA nejsou definovány žádné speciální charakteristiky.;I když zákazník ve výkresu nedefinoval žádné speciální charakteristiky, organizace musí v rámci PFMEA provést vlastní analýzu a rozhodnout, zda některé parametry nevyžadují zvýšenou kontrolu z hlediska bezpečnosti, funkce nebo montáže. Pokud analýza potvrdí, že speciální charakteristiky skutečně nejsou, měl by být tento závěr v PFMEA zdokumentován – například poznámkou, že byla provedena revize výkresu a interní posouzení s výsledkem, že SC nejsou identifikovány.;Defined inspection dimensions not considered as special characteristics.;PFMEA review in order to include all inpsection dimenstion and risk related to those.;"Kocur
+Dlask";;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;4.6;Vývoj;;Seznam/přehled vzorků PPAP ve skladu není k dispozici.;Organizace musí udržovat evidenci referenčních vzorků PPAP uložených ve skladu – tedy přehled, jaké díly jsou uchovávány, k jakému projektu/zákazníkovi patří, datum schválení, umístění a doba archivace. Bez této evidence není možné dohledat referenční vzorek při reklamaci nebo auditu, ani ověřit, zda jsou vzorky stále platné a správně skladovány.;Such list was not considered since begininng of production;"Update SOP for PPAP 7.3.4 with specific requirements to keep a list of all PPAP samples.
+To track the overview about the stored samples, the current list of issued PSW will be extended to record the samples as well.";Kestlerová;;1;1;0;0
+1;Neshoda;08.12.2025;20.02.2026;5.7;Management;;Není k dispozici žádný certifikovaný Auditor VDA 6.3.;Organizace musí mít k dispozici certifikovaného auditora VDA 6.3 pro provádění procesních auditů – interních i u dodavatelů. Certifikace zajišťuje, že auditor zná metodiku, umí správně hodnotit procesy a výsledky auditu jsou akceptovatelné zákazníky v automotive. Řešením je buď vyškolení a certifikace vlastního pracovníka, nebo využití externího certifikovaného auditora pro audity dodavatelů a interní procesní audity.;For the audits were is a requirement for the auditor VD 6.3 with personall certification OILES Czech is using a external auditor.;The quality technician at OILES Czech is currently working towards personal certification for VD6.3. In the meantime, OILES Czech will use an external contractor wherever a certified auditor is needed, like for the other project related to AUDI or VW.;Veselý;06.01.2026;1;1;1;1
+1;Neshoda;08.12.2025;20.02.2026;6.1.4;Logistika;;Doba použitelnosti maziva není pod kontrolou.;Materiály s omezenou dobou použitelnosti (maziva, lepidla, těsnění apod.) musí být řízeny systémem, který zajistí sledování data expirace, dodržování FIFO, viditelné označení doby použitelnosti na obalu nebo regálu a pravidelnou kontrolu při výdeji do výroby. Použití prošlého maziva může ovlivnit kvalitu produktu, přičemž tuto vadu nelze odhalit běžnou kontrolou.;Not clear definition of expiration date on the inspection certificate of grease. ;Clarification with product engineering and grease supplier and apply appropriate handling based on the clarification;Lukáč;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;6.1.5*;Vývoj;;Postup řízení změn pro sériovou výrobu je k dispozici. Změna – převod – nebyly předloženy žádné záznamy o změně.;Postup pro řízení změn existuje, ale v praxi není dodržován. Konkrétně při transferu (přesun výroby, nástroje, procesu) nebyly vytvořeny záznamy dokládající provedení změny podle definovaného postupu. Každá změna musí být evidována, posouzena z hlediska dopadu na produkt/proces, schválena odpovědnými osobami a v případě potřeby oznámena zákazníkovi. Existence procedury bez důkazů o její aplikaci je pro auditora stejný problém jako absence procedury.;Per APQP SOP a list called History of changes to be used, this is list is not used since there is missing linkage between the APQP tracker and the list of changes;Add specicif points to the APQP tracker (Stage 2) to link it with History of changes;Veselý;;1;1;0;0
+1;Neshoda;08.12.2025;20.02.2026;6.2.1;Výroba;;Vizualizace v pracovní instrukci (nastavení nástroje) nebyla předložena.;Viz kapitola;Side-by-side review current documentation during affected activities to identify a gaps and improve them.;Side-by-side review current documentation during affected activities to identify a gaps and improve them.;Kocur;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;6.2.3*;Výroba;;Způsobilost (Injection moulding) potvrzena během fáze vývoje. Poté již není statisticky vyhodnocována. Data pro vyhodnocení jsou k dispozici.;Způsobilost procesu musí být průběžně statisticky vyhodnocována, nejen jednorázově ověřena při uvolnění výroby. I když nejsou definovány speciální charakteristiky, klíčové rozměry nebo procesní parametry by měly být sledovány, aby organizace včas zachytila drift procesu. Pokud jsou data sbírána, ale nevyhodnocována, jde o promarněnou příležitost k řízení kvality. V případě, že analýza potvrdí, že není co sledovat (stabilní proces, žádné kritické parametry), mělo by být zdokumentováno zdůvodnění, proč se SPC neprovádí.;Statistical process control not implemented due low historical variability, and not considered;"Review the current design to identify the characteristics that have the greatest influence on performance and the customer interface, and introduce proper statistical process control.
+
+While the variation is low, OILES would like to postpone this activity until the new SPC handbook is officially released by VDA & AIAG to follow latest industry standards.";Kocur;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;6.2.5;Výroba;;Během schvalovacího procesu a po uvolnění výroby díly nejsou jasně identifikovány. Není jasný stav dílů.;Díly musí být v každé fázi jasně identifikovány z hlediska jejich statusu – prototyp, vzorky pro PPAP, předsérie, uvolněná série, zablokované kusy, neshodné díly. Identifikace může být řešena štítky, barvou přepravek, odděleným skladováním nebo zápisem v systému, ale vždy musí být na první pohled zřejmé, o jaký typ dílu jde a zda je možné jej expedovat zákazníkovi. Záměna statusu dílů může vést k dodání neschválených nebo neshodných kusů.;Production release takes place in three phases, with the second phase having no status identification.;A visual helper to be placed on each machine with status of each stage during production release and after relase;Kocur;;1;0;0;0
+1;Neshoda;08.12.2025;20.02.2026;6.4.3*;Kvalita;;Vážicí zařízení určené pro 100% kontrolu výroby je bez platné kalibrace. Podle záznamu by toto zařízení již mělo být vyřazeno.;Měřicí zařízení používané ve výrobě musí mít platnou kalibraci a musí být vedeno v systému řízení měřidel. Pokud kalibrace vypršela nebo měřidlo nesplňuje požadavky, nesmí být používáno a musí být označeno jako nezpůsobilé nebo vyřazeno. V tomto případě selhaly dvě věci: váha bez platné kalibrace je stále v provozu pro 100% kontrolu, a přestože ji systém označil k vyřazení, nikdo to neprovedl. Výsledky měření z nekalibrovaného zařízení jsou nedůvěryhodné a zpochybňují kvalitu veškeré produkce kontrolované tímto zařízením.;"Administrative error involving a record swap during equipment replacement (April 2022). During the introduction of a new scale for the SOMA line (ID 372780), the original SOMA scale (ID WD140087354) was intended to be removed from the system. Due to human error inherent in manual Excel record-keeping, the wrong row was selected. Consequently, the KROFIAN scale—which shared an identical calibration due date—was accidentally moved to ""Scrapped/MKS"" status instead of the old SOMA scale. Consequence: The Krofian scale became administratively inactive (""invisible""), while the old SOMA scale remained active in the records.";"Immediate Action:
+The KROFIAN scale was restored to the active registry and successfully calibrated on December 17, 2026.
+
+Systemic Action:
+Transition from high-risk Excel spreadsheets to the new validated application CALIBRIO.
+This application eliminates the possibility of accidental device deletion/scrapping by enforcing a ""Disposal Protocol"" upload requirement (UI block).
+It implements a full Audit Log (history of changes), which was missing in the previous Excel workflow.";"Veselý
+Kestlerová";;1;1;0;0
+1;Neshoda;08.12.2025;20.02.2026;7.1;Management;;QASS ještě není podepsána se společností Marelli.;QASS (Quality Assurance Agreement with Supplier) je dohoda o zajištění kvality mezi zákazníkem a dodavatelem, která definuje vzájemné požadavky na kvalitu, eskalační postupy, pravidla pro reklamace, požadavky na audity, certifikace a další podmínky spolupráce. Bez podepsané QASS nejsou formálně odsouhlaseny podmínky spolupráce a v případě sporu chybí závazný dokument. Podpis QASS by měl být dokončen před zahájením sériových dodávek.;Ongoing negotiation between interested parties.;Officially close all open topics between all parties and signoff the QASS;Langrock;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+GENERAL
+B";Kvalita;;"Dodavatel musí pravidelně provádět křížovou kontrolu hlavních vlastností nakupovaných materiálů 
+(interně nebo externí kvalifikovanou laboratoří), druh zkoušek a jejich četnost musí být 
+dohodnuty s oddělením SDE závodu Marelli. Pokud není stanoveno oddělením SDE, minimální četnost je jednou ročně 
+v souladu s PPAP.";"Dodavatel musí pravidelně provádět křížovou kontrolu hlavních vlastností nakupovaných materiálů 
+(interně nebo externí kvalifikovanou laboratoří), druh zkoušek a jejich četnost musí být 
+dohodnuty s oddělením SDE závodu Marelli. Pokud není stanoveno oddělením SDE, minimální četnost je jednou ročně 
+v souladu s PPAP.";New CSR not considered;"Update the plan of Layout inspection and functional testing wtih SOP.
+Include this step also to the APQP tracker for the 5. stage";Veselý;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+GENERAL
+C";Výroba;;"Vzhledem k tomu, že vysoké procento reklamací kvality je způsobeno nesprávným řízením nastavovacích 
+operací, jsou vyžadovány následující činnosti:
+1) Musí být k dispozici postup řízení nastavení,
+2) Musí být zaveden kontrolní seznam nastavení, který obsahuje všechny činnosti, které je třeba provést. Tento kontrolní seznam 
+musí být podepsán osobou odpovědnou za nastavení.
+3) Školení o „klíčových pravidlech“ řízení nastavení musí být pravidelně opakováno a 
+zaznamenáváno
+4) Personál musí být během činnosti nastavení kontrolován pravidelnými „vrstvenými audity“. Výsledek auditu 
+musí být zaznamenán.
+5) Funkce společnosti umožňující provádění nastavovacích operací musí být jasně definována v postupu řízení nastavení, pouze proškolené a oprávněné osoby smí nastavovat parametry stroje 
+a mohou řešit situace mimo toleranci. Software nastavovacího zařízení musí 
+být chráněn heslem nebo klíčem.
+6) Matice dovedností musí jasně uvádět osoby oprávněné provádět nastavovací operace,";"Vzhledem k tomu, že vysoké procento reklamací kvality je způsobeno nesprávným řízením nastavovacích 
+operací, jsou vyžadovány následující činnosti:
+1) Musí být k dispozici postup řízení nastavení,
+2) Musí být zaveden kontrolní seznam nastavení, který obsahuje všechny činnosti, které je třeba provést. Tento kontrolní seznam 
+musí být podepsán osobou odpovědnou za nastavení.
+3) Školení o „klíčových pravidlech“ řízení nastavení musí být pravidelně opakováno a 
+zaznamenáváno
+4) Personál musí být během činnosti nastavení kontrolován pravidelnými „vrstvenými audity“. Výsledek auditu 
+musí být zaznamenán.
+5) Funkce společnosti umožňující provádění nastavovacích operací musí být jasně definována v postupu řízení nastavení, pouze proškolené a oprávněné osoby smí nastavovat parametry stroje 
+a mohou řešit situace mimo toleranci. Software nastavovacího zařízení musí 
+být chráněn heslem nebo klíčem.
+6) Matice dovedností musí jasně uvádět osoby oprávněné provádět nastavovací operace,";New CSR not considered, LPA introduced based based on the customer requiremets, Not across the entire organization. No one has yet required LPA for injection molding or PSB assembly before.;Extend scope of LPA to the process of injection molding and PSB assembly;Kocur;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+PIM
+C";Vývoj;;"Dodavatel musí být schopen monitorovat analýzu vlhkosti a v případě potřeby ji zkontrolovat na začátku výroby podle pokynů výrobce pryskyřice. 
+Pokyny.";"Dodavatel musí být schopen monitorovat analýzu vlhkosti a v případě potřeby ji zkontrolovat na začátku výroby podle pokynů výrobce pryskyřice. 
+Pokyny.";New CSR not considered;Consult with the mother company to obtain a second opinion and share experience. Investigate the market and the internal production processes to ensure the proper implementation of the moisture monitoring system for the resin. ;Kocur;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+PIM
+G";Logistika;;"VŠECHNY prošlé materiály musí být řádně spravovány a odděleny v uzamčeném vyhrazeném prostoru.
+Dodavatel musí zavést účinný systém schopný detekovat a identifikovat prošlé materiály.";"VŠECHNY prošlé materiály musí být řádně spravovány a odděleny v uzamčeném vyhrazeném prostoru.
+Dodavatel musí zavést účinný systém schopný detekovat a identifikovat prošlé materiály.";"New CSR not considered
+Not clear definition of expiration date on the inspection certificate of grease. ";Clarification with product engineering and grease supplier and apply appropriate handling based on the clarification;Lukáč;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+PIM
+G";Vývoj;;"Dodavatel musí pravidelně provádět křížovou kontrolu hlavních vlastností (včetně kontroly barvy) nakupovaných plastových surovin (i v případě, že materiál nakupuje 
+přímo od společnosti Marelli) v kvalifikované laboratoři (interní nebo externí).
+Kontrola barvy se provádí vizuálním porovnáním granulí plastové suroviny / pryskyřice použité k výrobě granulí schválené hlavní součásti.
+
+Druh testů a jejich četnost musí být dohodnuty s Marelli SDE (u projektů ve vývoji) nebo SQE (v případě změn během sériové výroby).";"Dodavatel musí pravidelně provádět křížovou kontrolu hlavních vlastností (včetně kontroly barvy) nakupovaných plastových surovin (i v případě, že materiál nakupuje 
+přímo od společnosti Marelli) v kvalifikované laboratoři (interní nebo externí).
+Kontrola barvy se provádí vizuálním porovnáním granulí plastové suroviny / pryskyřice použité k výrobě granulí schválené hlavní součásti.
+
+Druh testů a jejich četnost musí být dohodnuty s Marelli SDE (u projektů ve vývoji) nebo SQE (v případě změn během sériové výroby).";New CSR not considered;Still to be communicated with Marelli if the supplier data are acceptable, or independent laboratory to be used.;Dlask;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+ASSEMBLY
+B";Výroba;;"Po každé změně šarže plastového surového materiálu během výroby musí dodavatel 
+opakovat schvalovací proces spuštění.
+Na konci výroby musí dodavatel potvrdit, zda barva poslední vyrobené 
+součásti odpovídá schválené vzorové součásti.";"Po každé změně šarže plastového surového materiálu během výroby musí dodavatel 
+opakovat schvalovací proces spuštění.
+Na konci výroby musí dodavatel potvrdit, zda barva poslední vyrobené 
+součásti odpovídá schválené vzorové součásti.";New CSR not considered;Introduce a policy for the production that when new batch of material is used, the production release to be conducted per control plan.;Kocur;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+ASSEMBLY
+C";Vývoj;;"Montáž musí být vybavena zařízením s automatickou kontrolou komponentů na finální 
+části (viz příloha: známé poruchy komponentů YTEC).
+Stav/funkce montáže musí být zkontrolována minimálně před zahájením 
+výroby a po každém výpadku.";"Montáž musí být vybavena zařízením s automatickou kontrolou komponentů na finální 
+části (viz příloha: známé poruchy komponentů YTEC).
+Stav/funkce montáže musí být zkontrolována minimálně před zahájením 
+výroby a po každém výpadku.";New CSR not considered;The requirement need to a side-by-side review on the production line and possible improvement documented/implemented.;Kocur;;1;0;0;0
+1;CSR;08.12.2025;20.02.2026;"CQCL
+ASSEMBLY
+C";Vývoj;;"Všechny parametry procesu, které mají přímý vliv na stabilitu procesu a konečného produktu 
+(např. tlak vzduchu, napětí, průtok kapalin, teplota atd., viz příklady v 
+„Poruchy známých součástí YTEC“), musí být během výroby kontrolovány, monitorovány, 
+zaznamenávány přímo na každé montážní stanici a vyhodnoceny pomocí studie SPC.";"Všechny parametry procesu, které mají přímý vliv na stabilitu procesu a konečného produktu 
+(např. tlak vzduchu, napětí, průtok kapalin, teplota atd., viz příklady v 
+„Poruchy známých součástí YTEC“), musí být během výroby kontrolovány, monitorovány, 
+zaznamenávány přímo na každé montážní stanici a vyhodnoceny pomocí studie SPC.";New CSR not considered;The requirement need to a side-by-side review on the production line and possible improvement documented/implemented.;Kocur;;1;0;0;0

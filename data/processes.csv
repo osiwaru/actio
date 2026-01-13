@@ -1,11 +1,12 @@
 process;process_owner
-Výroba;Jan Novák
-Kvalita;Petr Svoboda
-Nákup;Marie Veselá
-Logistika;Karel Černý
-Údržba;Anna Malá
-Vývoj;Tomáš Horák
-HR;Eva Králová
-Finance;David Procházka
-IT;Lukáš Dvořák
-Prodej;Markéta Pospíšilová
+Výroba;Manažer výroby
+Kvalita;Manažer kvality
+Nákup;PCL Manager
+Logistika;PCL Manager
+Údržba;Manažer výroby
+Vývoj;Vedoucí technik
+HR;HRA manažer
+Finance; Účetní manažer　
+IT;HRA manažer
+Prodej;PCL Manager
+Management; Ředitel

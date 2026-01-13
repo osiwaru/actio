@@ -40,9 +40,18 @@ class ActionController
     public function index(array $params = []): void
     {
         $actions = $this->actionService->getAll();
+        
+        // Get audit sessions for display
+        $auditSessionService = new AuditSessionService();
+        $auditSessions = $auditSessionService->getAll();
+        $auditSessionMap = [];
+        foreach ($auditSessions as $session) {
+            $auditSessionMap[$session['id']] = $session['name'];
+        }
 
         Response::viewWithLayout('actions/list', [
             'actions' => $actions,
+            'auditSessionMap' => $auditSessionMap,
             'currentPage' => 'actions',
         ], 200, 'Zjištění / Opatření | ACTIO');
     }

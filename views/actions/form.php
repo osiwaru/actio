@@ -95,13 +95,33 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
             </div>
             <div class="card-body">
                 <div class="row g-3">
+                    <!-- Audit Session -->
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-3' ?>">
+                        <label for="audit_session_id" class="form-label">Auditní sezení</label>
+                        <select class="form-select" id="audit_session_id" name="audit_session_id" form="action-form">
+                            <option value="">-- Bez přiřazení --</option>
+                            <?php foreach ($auditSessions as $session): ?>
+                                <?php
+                                $dateObj = !empty($session['date']) ? new DateTime($session['date']) : null;
+                                $sessionDate = $dateObj ? $dateObj->format('d.m.Y') : '';
+                                $sessionDateIso = $dateObj ? $dateObj->format('Y-m-d') : '';
+                                $sessionLabel = $session['name'] . ($sessionDate ? ' (' . $sessionDate . ')' : '');
+                                $isSelected = (int) $getValue('audit_session_id') === (int) $session['id'];
+                                ?>
+                                <option value="<?= h($session['id']) ?>" data-date="<?= h($sessionDateIso) ?>" <?= $isSelected ? 'selected' : '' ?>>
+                                    <?= h($sessionLabel) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                     <!-- Rating -->
-                    <div class="col-md-6">
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-3' ?>">
                         <label for="rating" class="form-label">Hodnocení <span class="text-danger">*</span></label>
                         <select class="form-select <?= isset($errors['rating']) ? 'is-invalid' : '' ?>" id="rating"
                             name="rating" form="action-form" required>
                             <option value="">-- Vyberte --</option>
-                            <option value="Neshoda" <?= $getValue('rating') === 'Neshoda' ? 'selected' : '' ?>>Neshoda
+                            <option value="Neshoda" <?= $getValue('rating', 'Neshoda') === 'Neshoda' ? 'selected' : '' ?>>Neshoda
                             </option>
                             <option value="Doporučení" <?= $getValue('rating') === 'Doporučení' ? 'selected' : '' ?>>
                                 Doporučení</option>
@@ -114,27 +134,8 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                         <?php endif; ?>
                     </div>
 
-                    <!-- Audit Session -->
-                    <div class="col-md-6">
-                        <label for="audit_session_id" class="form-label">Auditní sezení</label>
-                        <select class="form-select" id="audit_session_id" name="audit_session_id" form="action-form">
-                            <option value="">-- Bez přiřazení --</option>
-                            <?php foreach ($auditSessions as $session): ?>
-                                <?php
-                                $sessionDate = !empty($session['date']) ? (new DateTime($session['date']))->format('d.m.Y') : '';
-                                $sessionLabel = $session['name'] . ($sessionDate ? ' (' . $sessionDate . ')' : '');
-                                $isSelected = (int) $getValue('audit_session_id') === (int) $session['id'];
-                                ?>
-                                <option value="<?= h($session['id']) ?>" <?= $isSelected ? 'selected' : '' ?>>
-                                    <?= h($sessionLabel) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="form-text">Volitelně přiřaďte akci k auditnímu sezení</div>
-                    </div>
-
                     <!-- Finding Date -->
-                    <div class="col-md-6">
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-3' ?>">
                         <label for="finding_date" class="form-label">Datum zjištění <span
                                 class="text-danger">*</span></label>
                         <input type="date"
@@ -146,8 +147,15 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                         <?php endif; ?>
                     </div>
 
+                    <!-- Deadline Plan -->
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-3' ?>">
+                        <label for="deadline_plan" class="form-label">Termín plánu</label>
+                        <input type="date" class="form-control" id="deadline_plan" name="deadline_plan"
+                            form="action-form" value="<?= h($getValue('deadline_plan')) ?>">
+                    </div>
+
                     <!-- Chapter -->
-                    <div class="col-md-6">
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-4' ?>">
                         <label for="chapter" class="form-label">Kapitola normy <span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control <?= isset($errors['chapter']) ? 'is-invalid' : '' ?>"
@@ -159,7 +167,7 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                     </div>
 
                     <!-- Process -->
-                    <div class="col-md-6">
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-4' ?>">
                         <label for="process" class="form-label">Proces</label>
                         <select class="form-select" id="process" name="process" form="action-form">
                             <option value="">-- Vyberte proces --</option>
@@ -172,7 +180,7 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                     </div>
 
                     <!-- Process Owner -->
-                    <div class="col-md-6">
+                    <div class="<?= $isEdit ? 'col-md-6' : 'col-md-4' ?>">
                         <label for="process_owner" class="form-label">Majitel procesu <span
                                 class="text-danger">*</span></label>
                         <select class="form-select <?= isset($errors['process_owner']) ? 'is-invalid' : '' ?>"
@@ -190,13 +198,7 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
                         <?php endif; ?>
                     </div>
 
-                    <!-- Deadline Plan -->
-                    <div class="col-md-6">
-                        <label for="deadline_plan" class="form-label">Termín plánu</label>
-                        <input type="date" class="form-control" id="deadline_plan" name="deadline_plan"
-                            form="action-form" value="<?= h($getValue('deadline_plan')) ?>">
-                        <div class="form-text">Do kdy má být stanoven plán opatření</div>
-                    </div>
+
 
                     <!-- Finding -->
                     <div class="col-12">
@@ -408,6 +410,60 @@ $formTitle = $isEdit ? 'Upravit akci #' . $action['number'] : 'Nová akce';
             }
         }
     });
+
+    // Helper to add working days
+    function addWorkDays(startDate, days) {
+        let currentDate = new Date(startDate);
+        let addedDays = 0;
+        while (addedDays < days) {
+            currentDate.setDate(currentDate.getDate() + 1);
+            const day = currentDate.getDay();
+            if (day !== 0 && day !== 6) {
+                addedDays++;
+            }
+        }
+        return currentDate;
+    }
+
+    // Calculate deadline plan
+    function updateDeadlinePlan() {
+        const findingDateInput = document.getElementById('finding_date');
+        const deadlinePlanInput = document.getElementById('deadline_plan');
+        
+        if (findingDateInput && findingDateInput.value && deadlinePlanInput) {
+            const findingDate = new Date(findingDateInput.value);
+            const deadlineDate = addWorkDays(findingDate, 10);
+            deadlinePlanInput.value = deadlineDate.toISOString().split('T')[0];
+        }
+    }
+
+    // Auto-fill finding date from audit session
+    function updateFindingDateFromSession() {
+        const select = document.getElementById('audit_session_id');
+        const selectedOption = select.options[select.selectedIndex];
+        const date = selectedOption ? selectedOption.dataset.date : null;
+        const dateInput = document.getElementById('finding_date');
+
+        // Only update if dateInput is empty or if we want to force update on session change
+        // For pre-selection, we probably want to update if it matches the session logic
+        if (date && dateInput) {
+             // Check if it's already set to something else manually? 
+             // Requirement says: "Datum zjištění se nepropíše". So if session is selected, use that date.
+            dateInput.value = date;
+            updateDeadlinePlan();
+        }
+    }
+
+    const auditSessionSelect = document.getElementById('audit_session_id');
+    auditSessionSelect.addEventListener('change', updateFindingDateFromSession);
+    
+    // Run on load if session is selected
+    if (auditSessionSelect.value) {
+        updateFindingDateFromSession();
+    }
+
+    // Recalculate deadline when finding date changes
+    document.getElementById('finding_date').addEventListener('change', updateDeadlinePlan);
 
     // AJAX Upload Handling
     const uploadForm = document.getElementById('upload-form');
