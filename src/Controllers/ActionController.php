@@ -3,9 +3,10 @@
  * ACTIO - Action Controller
  * 
  * Handles HTTP requests for Actions (Zjištění/Opatření) CRUD.
+ * Extends BaseController for common functionality.
  * 
  * Security Requirements:
- * - C07: CSRF validation on POST/PUT/DELETE
+ * - C07: CSRF validation on POST/PUT/DELETE (via BaseController)
  * - C04: XSS prevention (handled in views via h())
  * 
  * @package Actio\Controllers
@@ -15,22 +16,23 @@ declare(strict_types=1);
 
 namespace Actio\Controllers;
 
+use Actio\Core\BaseController;
 use Actio\Core\Request;
 use Actio\Core\Response;
-use Actio\Core\Auth;
 use Actio\Services\ActionService;
 use Actio\Services\AuditSessionService;
 use Actio\Services\AttachmentService;
 
-class ActionController
+class ActionController extends BaseController
 {
-    private Request $request;
     private ActionService $actionService;
+    private AuditSessionService $auditSessionService;
 
     public function __construct(Request $request)
     {
-        $this->request = $request;
+        parent::__construct($request);
         $this->actionService = new ActionService();
+        $this->auditSessionService = new AuditSessionService();
     }
 
     /**
@@ -42,8 +44,7 @@ class ActionController
         $actions = $this->actionService->getAll();
         
         // Get audit sessions for display
-        $auditSessionService = new AuditSessionService();
-        $auditSessions = $auditSessionService->getAll();
+        $auditSessions = $this->auditSessionService->getAll();
         $auditSessionMap = [];
         foreach ($auditSessions as $session) {
             $auditSessionMap[$session['id']] = $session['name'];
@@ -67,10 +68,9 @@ class ActionController
         $oldInputJson = flash('old_input');
         $oldInput = $oldInputJson ? json_decode($oldInputJson, true) : [];
         $processData = self::getProcesses();
-        $auditSessionService = new AuditSessionService();
 
         // Handle preselected audit session from URL
-        $preselectedSessionId = $this->request->query('audit_session_id');
+        $preselectedSessionId = $this->query('audit_session_id');
         if ($preselectedSessionId && empty($oldInput['audit_session_id'])) {
             $oldInput['audit_session_id'] = (int) $preselectedSessionId;
         }
@@ -82,7 +82,7 @@ class ActionController
             'isEdit' => false,
             'processes' => $processData['processes'],
             'processOwners' => $processData['owners'],
-            'auditSessions' => $auditSessionService->getAll(),
+            'auditSessions' => $this->auditSessionService->getAll(),
             'currentPage' => 'actions',
         ], 200, 'Nová akce | ACTIO');
     }
@@ -93,17 +93,13 @@ class ActionController
      */
     public function store(array $params = []): void
     {
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/actions/create'));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/actions/create'))) {
             return;
         }
 
-        // Check permission
-        if (!Auth::canEdit()) {
-            Response::forbidden('Nemáte oprávnění vytvářet akce.');
+        // Check permission - using BaseController method
+        if (!$this->requireCanEdit('Nemáte oprávnění vytvářet akce.')) {
             return;
         }
 
@@ -111,9 +107,7 @@ class ActionController
             $input = $this->getFormInput();
             $action = $this->actionService->create($input);
 
-            flash('success', 'Akce byla úspěšně vytvořena.');
-
-            Response::redirect(url('/actions/' . $action['id']));
+            $this->redirect(url('/actions/' . $action['id']), 'success', 'Akce byla úspěšně vytvořena.');
         } catch (\InvalidArgumentException $e) {
             flash('errors', $e->getMessage());
             flash('old_input', json_encode($this->getFormInput()));
@@ -165,7 +159,6 @@ class ActionController
         $oldInputJson = flash('old_input');
         $oldInput = $oldInputJson ? json_decode($oldInputJson, true) : [];
         $processData = self::getProcesses();
-        $auditSessionService = new AuditSessionService();
         $attachmentService = new AttachmentService();
 
         Response::viewWithLayout('actions/form', [
@@ -175,7 +168,7 @@ class ActionController
             'isEdit' => true,
             'processes' => $processData['processes'],
             'processOwners' => $processData['owners'],
-            'auditSessions' => $auditSessionService->getAll(),
+            'auditSessions' => $this->auditSessionService->getAll(),
             'attachments' => $attachmentService->getForAction($id),
             'currentPage' => 'actions',
         ], 200, 'Upravit akci #' . $action['number'] . ' | ACTIO');
@@ -189,17 +182,13 @@ class ActionController
     {
         $id = (int) ($params['id'] ?? 0);
 
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/actions/' . $id . '/edit'));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/actions/' . $id . '/edit'))) {
             return;
         }
 
-        // Check permission
-        if (!Auth::canEdit()) {
-            Response::forbidden('Nemáte oprávnění upravovat akce.');
+        // Check permission - using BaseController method
+        if (!$this->requireCanEdit('Nemáte oprávnění upravovat akce.')) {
             return;
         }
 
@@ -213,8 +202,7 @@ class ActionController
             $input = $this->getFormInput();
             $this->actionService->update($id, $input);
 
-            flash('success', 'Akce byla úspěšně aktualizována.');
-            Response::redirect(url('/actions/' . $id));
+            $this->redirect(url('/actions/' . $id), 'success', 'Akce byla úspěšně aktualizována.');
         } catch (\InvalidArgumentException $e) {
             flash('errors', $e->getMessage());
             flash('old_input', json_encode($this->getFormInput()));
@@ -230,17 +218,13 @@ class ActionController
     {
         $id = (int) ($params['id'] ?? 0);
 
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/actions'));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/actions'))) {
             return;
         }
 
         // Check permission - only admin and auditor can delete
-        if (!Auth::isAuditor()) {
-            Response::forbidden('Nemáte oprávnění mazat akce.');
+        if (!$this->requireAuditor('Nemáte oprávnění mazat akce.')) {
             return;
         }
 
@@ -252,8 +236,7 @@ class ActionController
 
         $this->actionService->delete($id);
 
-        flash('success', 'Akce byla úspěšně smazána.');
-        Response::redirect(url('/actions'));
+        $this->redirect(url('/actions'), 'success', 'Akce byla úspěšně smazána.');
     }
 
     /**
@@ -264,29 +247,23 @@ class ActionController
     {
         $id = (int) ($params['id'] ?? 0);
 
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/actions/' . $id));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/actions/' . $id))) {
             return;
         }
 
-        // Check permission
-        if (!Auth::canEdit()) {
-            Response::forbidden('Nemáte oprávnění archivovat akce.');
+        // Check permission - using BaseController method
+        if (!$this->requireCanEdit('Nemáte oprávnění archivovat akce.')) {
             return;
         }
 
         $result = $this->actionService->archive($id);
 
         if ($result) {
-            flash('success', 'Akce byla úspěšně archivována.');
+            $this->redirect(url('/actions'), 'success', 'Akce byla úspěšně archivována.');
         } else {
-            flash('error', 'Akci se nepodařilo archivovat.');
+            $this->redirect(url('/actions'), 'error', 'Akci se nepodařilo archivovat.');
         }
-
-        Response::redirect(url('/actions'));
     }
 
     /**
@@ -295,23 +272,23 @@ class ActionController
     private function getFormInput(): array
     {
         return [
-            'rating' => $this->request->input('rating', ''),
-            'finding' => $this->request->input('finding', ''),
-            'description' => $this->request->input('description', ''),
-            'chapter' => $this->request->input('chapter', ''),
-            'problem_cause' => $this->request->input('problem_cause', ''),
-            'measure' => $this->request->input('measure', ''),
-            'process' => $this->request->input('process', ''),
-            'process_owner' => $this->request->input('process_owner', ''),
-            'responsible' => $this->request->input('responsible', ''),
-            'deadline' => $this->request->input('deadline', ''),
-            'deadline_plan' => $this->request->input('deadline_plan', ''),
-            'finding_date' => $this->request->input('finding_date', ''),
-            'status_plan' => $this->request->has('status_plan'),
-            'status_do' => $this->request->has('status_do'),
-            'status_check' => $this->request->has('status_check'),
-            'status_act' => $this->request->has('status_act'),
-            'audit_session_id' => $this->request->input('audit_session_id') ?: null,
+            'rating' => $this->input('rating', ''),
+            'finding' => $this->input('finding', ''),
+            'description' => $this->input('description', ''),
+            'chapter' => $this->input('chapter', ''),
+            'problem_cause' => $this->input('problem_cause', ''),
+            'measure' => $this->input('measure', ''),
+            'process' => $this->input('process', ''),
+            'process_owner' => $this->input('process_owner', ''),
+            'responsible' => $this->input('responsible', ''),
+            'deadline' => $this->input('deadline', ''),
+            'deadline_plan' => $this->input('deadline_plan', ''),
+            'finding_date' => $this->input('finding_date', ''),
+            'status_plan' => $this->hasInput('status_plan'),
+            'status_do' => $this->hasInput('status_do'),
+            'status_check' => $this->hasInput('status_check'),
+            'status_act' => $this->hasInput('status_act'),
+            'audit_session_id' => $this->input('audit_session_id') ?: null,
         ];
     }
 

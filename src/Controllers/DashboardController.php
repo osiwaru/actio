@@ -3,6 +3,7 @@
  * ACTIO - Dashboard Controller
  * 
  * Handles the main dashboard view.
+ * Extends BaseController for common functionality.
  * 
  * @package Actio\Controllers
  */
@@ -11,16 +12,19 @@ declare(strict_types=1);
 
 namespace Actio\Controllers;
 
+use Actio\Core\BaseController;
 use Actio\Core\Request;
 use Actio\Core\Response;
+use Actio\Services\ActionService;
 
-class DashboardController
+class DashboardController extends BaseController
 {
-    private Request $request;
+    private ActionService $actionService;
 
     public function __construct(Request $request)
     {
-        $this->request = $request;
+        parent::__construct($request);
+        $this->actionService = new ActionService();
     }
 
     /**
@@ -28,13 +32,8 @@ class DashboardController
      */
     public function index(array $params = []): void
     {
-        // TODO: Load actual statistics from ActionService
-        $stats = [
-            'total_open' => 12,
-            'overdue' => 3,
-            'due_this_week' => 5,
-            'completed_this_month' => 8,
-        ];
+        // Get actual statistics from ActionService
+        $stats = $this->actionService->getStats();
 
         // TODO: Load actual actions from ActionService
         $myActions = [];

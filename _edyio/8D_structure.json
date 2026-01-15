@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "cislo_pripadu": "PC-XXX",
+    "nazev": "Popis problému",
+    "datum_vzniku": "YYYY-MM-DD",
+    "verze": "1.0",
+    "status": "in_progress|closed",
+    "zakaznik": "Název zákazníka",
+    "posledni_aktualizace": "YYYY-MM-DD"
+  },
+  
+  "D1": {
+    "must_have": {
+      "vedouci_tymu": {
+        "jmeno": "",
+        "oddeleni": "",
+        "kontakt": ""
+      },
+      "sponzor": {
+        "jmeno": "",
+        "pozice": "",
+        "kontakt": ""
+      },
+      "clenove": [
+        {
+          "jmeno": "",
+          "role": "",
+          "oddeleni": "",
+          "kontakt": ""
+        }
+      ],
+      "odborne_oblasti_zastoupeny": true,
+      "kompetence_8d": true
+    },
+    "nice_to_have": {
+      "komunikacni_cesty": {
+        "interni": "",
+        "externi": "",
+        "frekvence_setkani": ""
+      },
+      "moderator_8d": {
+        "jmeno": "",
+        "kontakt": ""
+      },
+      "nezavisly_hodnotitel": {
+        "jmeno": "",
+        "kontakt": ""
+      }
+    }
+  },
+  
+  "D2": {
+    "must_have": {
+      "popis_problemu": {
+        "objekt": "",
+        "odchylka": ""
+      },
+      "prehled_skutecnosti": {
+        "co": "",
+        "kde": "",
+        "kdy": "",
+        "kolik": ""
+      },
+      "analyza_je_neni": [
+        {
+          "kategorie": "",
+          "je": [],
+          "neni": []
+        }
+      ]
+    },
+    "nice_to_have": {
+      "doplnujici_dokumentace": [
+        {
+          "typ": "obrazek|video|audio|dokument",
+          "popis": "",
+          "cesta": ""
+        }
+      ],
+      "potencialni_dopady": "",
+      "dalsi_metody": ""
+    }
+  },
+  
+  "D3": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "",
+          "popis": "",
+          "odpovdena_osoba": "",
+          "termin_zavedeni": "YYYY-MM-DD",
+          "termin_ukonceni": "",
+          "dukaz_ucinnosti": ""
+        }
+      ],
+      "posouzeni_rizik": ""
+    },
+    "nice_to_have": {
+      "prubezna_dokumentace": [
+        {
+          "datum": "YYYY-MM-DD",
+          "poznamka": ""
+        }
+      ],
+      "metodicke_stanoveni_rizika": "",
+      "dokumentace_vyberu": ""
+    }
+  },
+  
+  "D4": {
+    "must_have": {
+      "priciny": [
+        {
+          "id": "",
+          "kategorie": "vyskyt|detekce",
+          "uroven": "technicka|systemova",
+          "popis": "",
+          "kategorie_vda": "",
+          "metoda_identifikace": "",
+          "zpusob_overeni": "",
+          "overeno": true,
+          "children": []
+        }
+      ],
+      "aktualizovane_hodnoceni_rizik": ""
+    },
+    "nice_to_have": {
+      "dokumentace_postupu": "",
+      "srozumitelnost_pro_nezucastnene": ""
+    }
+  },
+  
+  "D5": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "",
+          "pricina_id": "",
+          "kategorie": "vyskyt|detekce",
+          "uroven": "technicka|systemova",
+          "mozna_opatreni": [
+            {
+              "popis": "",
+              "hodnoceni_efektivnosti": ""
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "",
+            "oduvodneni": "",
+            "overeni": "",
+            "odpovdena_osoba": "",
+            "termin": "YYYY-MM-DD"
+          },
+          "tasks": [
+            {
+              "id": "",
+              "popis": "",
+              "odpovdena_osoba": "",
+              "termin": "YYYY-MM-DD",
+              "typ": "paralelni|serialni",
+              "status": "pending|in_progress|done"
+            }
+          ]
+        }
+      ],
+      "posouzeni_vedlejsich_ucinku": "",
+      "akcni_plan": ""
+    },
+    "nice_to_have": {
+      "rozhodovaci_matice": [
+        {
+          "kriterium": "",
+          "vaha": 0,
+          "hodnoceni": []
+        }
+      ],
+      "dokumentace_vyberu": ""
+    }
+  },
+  
+  "D6": {
+    "must_have": {
+      "realizace": [
+        {
+          "opatreni_id": "",
+          "stav_realizace": "realizovano|v_prubhu",
+          "datum_realizace": "YYYY-MM-DD",
+          "zpusob_validace": "",
+          "vysledek_validace": ""
+        }
+      ],
+      "zruseni_okamzitych_opatreni": [
+        {
+          "opatreni_id": "",
+          "stav": "zruseno|v_platnosti",
+          "datum_zruseni": "YYYY-MM-DD",
+          "oduvodneni": ""
+        }
+      ]
+    },
+    "nice_to_have": {
+      "dokumentace_validace": [
+        {
+          "typ": "experiment|fotografie|vykres|test",
+          "popis": "",
+          "cesta": ""
+        }
+      ],
+      "srozumitelnost_validace": "",
+      "trvale_zakotveni": ""
+    }
+  },
+  
+  "D7": {
+    "must_have": {
+      "srovnatelne_produkty_procesy": [],
+      "aktualizovane_dokumenty": [
+        {
+          "nazev": "",
+          "zpusob_aktualizace": "",
+          "odpovdena_osoba": "",
+          "datum": "YYYY-MM-DD",
+          "dostupnost": true
+        }
+      ],
+      "posouzeni_aplikovatelnosti": ""
+    },
+    "nice_to_have": {
+      "lessons_learned": {
+        "odpovdena_osoba": "",
+        "prijeti_potvrzeno": true,
+        "datum": "YYYY-MM-DD"
+      },
+      "dokumentace_prenosu": ""
+    }
+  },
+  
+  "D8": {
+    "must_have": {
+      "stav_opatreni": [
+        {
+          "opatreni_id": "",
+          "stav": "dokonceno|v_prubhu"
+        }
+      ],
+      "uvolneni": {
+        "datum": "YYYY-MM-DD",
+        "sponzor": "",
+        "vedouci_tymu": ""
+      },
+      "oceneni_tymu": true,
+      "rozpusteni_tymu": true
+    },
+    "nice_to_have": {
+      "zpusob_oceneni": "",
+      "ziskane_poznatky": [],
+      "samohodnoceni": {
+        "provedeno": true,
+        "vysledek_procent": 0
+      },
+      "externi_hodnoceni": {
+        "provedeno": true,
+        "hodnotitel": ""
+      },
+      "zavrecne_jednani": {
+        "datum": "YYYY-MM-DD",
+        "ucastnici": []
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
 /**
  * ACTIO - Layout Sidebar
  * 
- * Main navigation sidebar.
+ * Main navigation sidebar with dynamic menu from config/menu.php.
  * Based on dashio-template/src/index.html
  * 
  * @package Actio\Views\Layout
@@ -13,6 +13,10 @@ $user = currentUser();
 $userName = $user['name'] ?? 'Uživatel';
 $userEmail = $user['email'] ?? '';
 $userInitials = strtoupper(substr($userName, 0, 1) . (strpos($userName, ' ') ? substr($userName, strpos($userName, ' ') + 1, 1) : ''));
+$userRole = $user['role'] ?? 'viewer';
+
+// Load menu configuration
+$menuItems = require BASE_PATH . '/config/menu.php';
 ?>
         <!-- Sidebar -->
         <aside class="sidebar bg-body-tertiary border-end">
@@ -31,51 +35,28 @@ $userInitials = strtoupper(substr($userName, 0, 1) . (strpos($userName, ' ') ? s
                 <!-- Sidebar Navigation -->
                 <nav class="sidebar-nav flex-grow-1 p-3">
                     <ul class="nav flex-column gap-1">
-                        <li class="nav-item">
-                            <a class="nav-link<?= ($currentPage ?? '') === 'dashboard' ? ' active' : '' ?>" href="<?= url('/') ?>">
-                                <i class="bi bi-grid-1x2-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-header">Správa zjištění</li>
-
-                        <li class="nav-item">
-                            <a class="nav-link<?= ($currentPage ?? '') === 'actions' ? ' active' : '' ?>" href="<?= url('/actions') ?>">
-                                <i class="bi bi-clipboard-check"></i>
-                                <span>Zjištění / Opatření</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link<?= ($currentPage ?? '') === 'audit-sessions' ? ' active' : '' ?>" href="<?= url('/audit-sessions') ?>">
-                                <i class="bi bi-journal-text"></i>
-                                <span>Auditní sezení</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-header">Archiv</li>
-
-                        <li class="nav-item">
-                            <a class="nav-link<?= ($currentPage ?? '') === 'archive' ? ' active' : '' ?>" href="<?= url('/archive') ?>">
-                                <i class="bi bi-archive"></i>
-                                <span>Archiv</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-header">Export</li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= url('/export/csv') ?>">
-                                <i class="bi bi-file-earmark-spreadsheet"></i>
-                                <span>Export CSV</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= url('/export/excel') ?>">
-                                <i class="bi bi-file-earmark-excel"></i>
-                                <span>Export Excel</span>
-                            </a>
-                        </li>
+                        <?php foreach ($menuItems as $item): ?>
+                            <?php 
+                            // Check role-based visibility
+                            if (isset($item['roles']) && !in_array($userRole, $item['roles'])) {
+                                continue;
+                            }
+                            ?>
+                            
+                            <?php if (isset($item['header'])): ?>
+                                <!-- Section Header -->
+                                <li class="nav-header"><?= h($item['header']) ?></li>
+                            <?php else: ?>
+                                <!-- Navigation Link -->
+                                <li class="nav-item">
+                                    <a class="nav-link<?= ($currentPage ?? '') === $item['page'] ? ' active' : '' ?>" 
+                                       href="<?= url($item['url']) ?>">
+                                        <i class="<?= h($item['icon']) ?>"></i>
+                                        <span><?= h($item['label']) ?></span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
                 </nav>
                 

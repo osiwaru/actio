@@ -3,9 +3,10 @@
  * ACTIO - AuditSession Controller
  * 
  * Handles HTTP requests for Audit Sessions CRUD.
+ * Extends BaseController for common functionality.
  * 
  * Security Requirements:
- * - C07: CSRF validation on POST
+ * - C07: CSRF validation on POST (via BaseController)
  * - C04: XSS prevention (handled in views via h())
  * 
  * @package Actio\Controllers
@@ -15,20 +16,19 @@ declare(strict_types=1);
 
 namespace Actio\Controllers;
 
+use Actio\Core\BaseController;
 use Actio\Core\Request;
 use Actio\Core\Response;
-use Actio\Core\Auth;
 use Actio\Services\AuditSessionService;
 use Actio\Models\AuditSession;
 
-class AuditSessionController
+class AuditSessionController extends BaseController
 {
-    private Request $request;
     private AuditSessionService $sessionService;
 
     public function __construct(Request $request)
     {
-        $this->request = $request;
+        parent::__construct($request);
         $this->sessionService = new AuditSessionService();
     }
 
@@ -72,17 +72,13 @@ class AuditSessionController
      */
     public function store(array $params = []): void
     {
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/audit-sessions/create'));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/audit-sessions/create'))) {
             return;
         }
 
-        // Check permission
-        if (!Auth::canEdit()) {
-            Response::forbidden('Nemáte oprávnění vytvářet auditní sezení.');
+        // Check permission - using BaseController method
+        if (!$this->requireCanEdit('Nemáte oprávnění vytvářet auditní sezení.')) {
             return;
         }
 
@@ -90,8 +86,7 @@ class AuditSessionController
             $input = $this->getFormInput();
             $session = $this->sessionService->create($input);
 
-            flash('success', 'Auditní sezení bylo úspěšně vytvořeno.');
-            Response::redirect(url('/audit-sessions/' . $session['id']));
+            $this->redirect(url('/audit-sessions/' . $session['id']), 'success', 'Auditní sezení bylo úspěšně vytvořeno.');
         } catch (\InvalidArgumentException $e) {
             flash('errors', $e->getMessage());
             flash('old_input', json_encode($this->getFormInput()));
@@ -158,17 +153,13 @@ class AuditSessionController
     {
         $id = (int) ($params['id'] ?? 0);
 
-        // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
-        if (!verifyCsrfToken($csrfToken)) {
-            flash('error', 'Neplatný bezpečnostní token.');
-            Response::redirect(url('/audit-sessions/' . $id . '/edit'));
+        // Validate CSRF token (C07) - using BaseController method
+        if (!$this->validateCsrf(url('/audit-sessions/' . $id . '/edit'))) {
             return;
         }
 
-        // Check permission
-        if (!Auth::canEdit()) {
-            Response::forbidden('Nemáte oprávnění upravovat auditní sezení.');
+        // Check permission - using BaseController method
+        if (!$this->requireCanEdit('Nemáte oprávnění upravovat auditní sezení.')) {
             return;
         }
 
@@ -182,8 +173,7 @@ class AuditSessionController
             $input = $this->getFormInput();
             $this->sessionService->update($id, $input);
 
-            flash('success', 'Auditní sezení bylo úspěšně aktualizováno.');
-            Response::redirect(url('/audit-sessions/' . $id));
+            $this->redirect(url('/audit-sessions/' . $id), 'success', 'Auditní sezení bylo úspěšně aktualizováno.');
         } catch (\InvalidArgumentException $e) {
             flash('errors', $e->getMessage());
             flash('old_input', json_encode($this->getFormInput()));
@@ -197,12 +187,12 @@ class AuditSessionController
     private function getFormInput(): array
     {
         return [
-            'name' => $this->request->input('name', ''),
-            'type' => $this->request->input('type', ''),
-            'date' => $this->request->input('date', ''),
-            'auditor' => $this->request->input('auditor', ''),
-            'standard' => $this->request->input('standard', ''),
-            'notes' => $this->request->input('notes', ''),
+            'name' => $this->input('name', ''),
+            'type' => $this->input('type', ''),
+            'date' => $this->input('date', ''),
+            'auditor' => $this->input('auditor', ''),
+            'standard' => $this->input('standard', ''),
+            'notes' => $this->input('notes', ''),
         ];
     }
 }

@@ -3,9 +3,10 @@
  * ACTIO - Attachment Controller
  * 
  * Handles HTTP requests for file attachments.
+ * Extends BaseController for common functionality.
  * 
  * Security Requirements:
- * - C07: CSRF validation on POST/DELETE
+ * - C07: CSRF validation on POST/DELETE (via BaseController)
  * - F01-F06: Secure file handling (delegated to service)
  * 
  * @package Actio\Controllers
@@ -15,21 +16,21 @@ declare(strict_types=1);
 
 namespace Actio\Controllers;
 
+use Actio\Core\BaseController;
 use Actio\Core\Request;
 use Actio\Core\Response;
 use Actio\Core\Auth;
 use Actio\Services\AttachmentService;
 use Actio\Services\ActionService;
 
-class AttachmentController
+class AttachmentController extends BaseController
 {
-    private Request $request;
     private AttachmentService $attachmentService;
     private ActionService $actionService;
 
     public function __construct(Request $request)
     {
-        $this->request = $request;
+        parent::__construct($request);
         $this->attachmentService = new AttachmentService();
         $this->actionService = new ActionService();
     }
@@ -57,7 +58,7 @@ class AttachmentController
         };
 
         // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
+        $csrfToken = $this->input('_csrf_token', '');
         if (!verifyCsrfToken($csrfToken)) {
             $respond(false, 'Neplatný bezpečnostní token.', 403);
             return;
@@ -83,7 +84,7 @@ class AttachmentController
         }
 
         try {
-            $description = $this->request->input('description', '');
+            $description = $this->input('description', '');
             $this->attachmentService->upload($actionId, $_FILES['attachment'], $description);
             $respond(true, 'Příloha byla úspěšně nahrána.');
         } catch (\InvalidArgumentException $e) {
@@ -133,13 +134,6 @@ class AttachmentController
             }
 
             flash($success ? 'success' : 'error', $message);
-            // We can't easily redirect back to action detail without action ID, 
-            // but usually we have referer or fallback.
-            // For now, redirect to list if we strictly follow old logic, 
-            // but ideally we should redirect to action detail.
-            // Since we deleted the attachment, we must find where to go.
-            // In AJAX mode, this redirect is ignored.
-            // In non-AJAX mode, we try to go back to Referer or Actions list.
             if (isset($_SERVER['HTTP_REFERER'])) {
                 Response::redirect($_SERVER['HTTP_REFERER']);
             } else {
@@ -148,7 +142,7 @@ class AttachmentController
         };
 
         // Validate CSRF token (C07)
-        $csrfToken = $this->request->input('_csrf_token', '');
+        $csrfToken = $this->input('_csrf_token', '');
         if (!verifyCsrfToken($csrfToken)) {
             $respond(false, 'Neplatný bezpečnostní token.', 403);
             return;

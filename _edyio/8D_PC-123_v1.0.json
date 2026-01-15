@@ -1,0 +1,964 @@
+{
+  "meta": {
+    "cislo_pripadu": "PC-123",
+    "nazev": "Poškozený sheet P/N CZ/DA110-0O-2K",
+    "datum_vzniku": "2025-09-03",
+    "verze": "1.0",
+    "status": "closed",
+    "zakaznik": "AutoParts GmbH",
+    "posledni_aktualizace": "2025-09-15"
+  },
+  
+  "D1": {
+    "must_have": {
+      "vedouci_tymu": {
+        "jmeno": "Robert Veselý",
+        "oddeleni": "Kvalita",
+        "kontakt": "robert.vesely@oiles.cz"
+      },
+      "sponzor": {
+        "jmeno": "Ing. Novák",
+        "pozice": "Ředitel výroby",
+        "kontakt": "novak@oiles.cz"
+      },
+      "clenove": [
+        {
+          "jmeno": "Pavel Dvořák",
+          "role": "Vedoucí výrobního oddělení",
+          "oddeleni": "Výroba - lisování",
+          "kontakt": "dvorak@oiles.cz"
+        },
+        {
+          "jmeno": "Operátor ID 22",
+          "role": "Operátor výroby",
+          "oddeleni": "Výroba - lisování",
+          "kontakt": "operator22@oiles.cz"
+        },
+        {
+          "jmeno": "Jana Nováková",
+          "role": "Technik kvality",
+          "oddeleni": "Kvalita",
+          "kontakt": "novakova@oiles.cz"
+        },
+        {
+          "jmeno": "Tomáš Černý",
+          "role": "Plánování výroby",
+          "oddeleni": "Logistika",
+          "kontakt": "cerny@oiles.cz"
+        }
+      ],
+      "odborne_oblasti_zastoupeny": true,
+      "kompetence_8d": true
+    },
+    "nice_to_have": {
+      "komunikacni_cesty": {
+        "interni": "Vedoucí týmu koordinuje vnitřní komunikaci, pravidelné schůzky každý čtvrtek 14:00",
+        "externi": "Komunikace se zákazníkem pouze přes vedoucího týmu",
+        "frekvence_setkani": "Týdenní schůzky + ad-hoc při kritických zjištěních"
+      },
+      "moderator_8d": {
+        "jmeno": "Ing. Petra Svobodová",
+        "kontakt": "svobodova@oiles.cz"
+      },
+      "nezavisly_hodnotitel": {
+        "jmeno": "Mgr. Martin Kovář",
+        "kontakt": "kovar@oiles.cz"
+      }
+    }
+  },
+  
+  "D2": {
+    "must_have": {
+      "popis_problemu": {
+        "objekt": "Sheet P/N CZ/DA110-0O-2K",
+        "odchylka": "Pin sheetu mimo osu, jedna z bočních hran rozdrcená lisováním, částice na kluzné ploše, souměrné otlaky okolo otvoru 6mm"
+      },
+      "prehled_skutecnosti": {
+        "co": "Poškozený sheet CZ/DA110-0O-2K s vadami: pin mimo osu, rozdrcená hrana, částice na kluzné ploše, otlaky okolo otvoru 6mm. Vady vznikající ve druhém kroku lisovacího procesu.",
+        "kde": "Stroj ML02, druhý krok dvou-krokového lisovacího nástroje, výrobní oddělení (lisování)",
+        "kdy": "Výroba vadných kusů: 1.7.2025 od 09:32:34 do 17:07:38. Detekce problému: 1.7.2025 17:07 operátorem ID JG. Výměna pinů: 1.7.2025 17:07-17:45. Reklamace zákazníka: 3.9.2025",
+        "kolik": "Celková výroba 1.7.2025: 15500 ks, podezřelý lot: cca 5000 ks, vyřazeno při interním třídění: 221 ks, vadné kusy po reklamaci: cca 90 ks celkem"
+      },
+      "analyza_je_neni": [
+        {
+          "kategorie": "Machine",
+          "je": ["Stroj ML02"],
+          "neni": ["Stroj ML03"]
+        },
+        {
+          "kategorie": "Kdy",
+          "je": ["1.7.2025 09:32-17:07"],
+          "neni": ["3.6.2025 (předchozí výroba)", "2.7.2025 (následující výroba)", "Po 17:45 (po výměně pinů)"]
+        },
+        {
+          "kategorie": "Man",
+          "je": ["Operátor ID 22 (ranní směna)", "Operátor ID JG (odpolední směna)"],
+          "neni": ["Ostatní operátoři", "Operátoři po výměně pinů"]
+        },
+        {
+          "kategorie": "Method",
+          "je": ["Druhý krok lisovacího procesu", "Opotřebované piny"],
+          "neni": ["První krok lisovacího procesu", "Nové piny po výměně"]
+        },
+        {
+          "kategorie": "Measurement",
+          "je": ["Bez systematické kontroly pinů během výroby"],
+          "neni": ["S kontrolou pinů při changeover"]
+        },
+        {
+          "kategorie": "Material",
+          "je": ["Standardní cívky materiálu"],
+          "neni": ["Žádná odchylka v materiálu identifikována"]
+        }
+      ]
+    },
+    "nice_to_have": {
+      "doplnujici_dokumentace": [
+        {
+          "typ": "obrazek",
+          "popis": "Fotografie poškozených sheetů - pin mimo osu",
+          "cesta": "/uploads/PC-123/photos/damaged_pin_001.jpg"
+        },
+        {
+          "typ": "obrazek",
+          "popis": "Fotografie rozdrcené hrany",
+          "cesta": "/uploads/PC-123/photos/damaged_edge_002.jpg"
+        },
+        {
+          "typ": "dokument",
+          "popis": "Protokol třídění u zákazníka",
+          "cesta": "/uploads/PC-123/docs/customer_sorting_report.pdf"
+        },
+        {
+          "typ": "dokument",
+          "popis": "Výsledky interního třídění 21.7.2025",
+          "cesta": "/uploads/PC-123/docs/internal_sorting_210725.xlsx"
+        }
+      ],
+      "potencialni_dopady": "Možný dopad na další sheety vyrobené na stejném nástroji. Riziko poškození zákaznických dílů při montáži. Potenciální reklamace od koncových zákazníků.",
+      "dalsi_metody": "Použita Paretova analýza pro identifikaci nejčastějších typů vad. Histogram časového výskytu vad ukázal kontinuální výskyt během celého dne 1.7.2025."
+    }
+  },
+  
+  "D3": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "D3-001",
+          "popis": "Třídění u zákazníka - 3.078 ks částečně zpracovaných dílů P/N CZ/DA110-0O-2K",
+          "odpovdena_osoba": "Zákazník (koordinace: obchodní oddělení)",
+          "termin_zavedeni": "2025-09-04",
+          "termin_ukonceni": "2025-09-11",
+          "dukaz_ucinnosti": "Protokol o třídění od zákazníka s výsledky"
+        },
+        {
+          "id": "D3-002",
+          "popis": "Blokace expedice všech zásob P/N CZ/DA110-0O-2K do dokončení procesu třídění",
+          "odpovdena_osoba": "Vedoucí expedice/skladu",
+          "termin_zavedeni": "2025-09-04",
+          "termin_ukonceni": "Po validaci trvalých nápravných opatření",
+          "dukaz_ucinnosti": "Potvrzení blokace v systému, žádné expedice do vyřešení problému"
+        },
+        {
+          "id": "D3-003",
+          "popis": "Přetřídění vrácených a připravených zásilek (celkem 10.330 ks) - výsledek: 86 vadných kusů",
+          "odpovdena_osoba": "Tým kvality",
+          "termin_zavedeni": "2025-09-04",
+          "termin_ukonceni": "2025-09-06",
+          "dukaz_ucinnosti": "Protokoly třídění: 65 ks vadných z 3.240 ks vrácených + 21 ks vadných z 7.090 ks připravených zásilek"
+        },
+        {
+          "id": "D3-004",
+          "popis": "Kontrola 13.608 ks skladových zásob - potvrzeno 0 vadných kusů",
+          "odpovdena_osoba": "Tým kvality",
+          "termin_zavedeni": "2025-09-04",
+          "termin_ukonceni": "2025-09-05",
+          "dukaz_ucinnosti": "Protokol třídění skladových zásob (0 vadných kusů z 13.608 ks)"
+        },
+        {
+          "id": "D3-005",
+          "popis": "Dočasné pozastavení výroby P/N CZ/DA110-0O-2K",
+          "odpovdena_osoba": "Plánovač výroby",
+          "termin_zavedeni": "2025-09-03",
+          "termin_ukonceni": "Po validaci trvalých nápravných opatření",
+          "dukaz_ucinnosti": "Aktualizovaný výrobní plán bez CZ/DA110-0O-2K"
+        },
+        {
+          "id": "D3-006",
+          "popis": "Rozšířená kontrola pinů - kontrola a přeměření před každou přestavbou všech referencí. Max. délka běhu 3 dny/3 směny (24.000 ks)",
+          "odpovdena_osoba": "Vedoucí výroby/kvality",
+          "termin_zavedeni": "2025-09-03",
+          "termin_ukonceni": "Po validaci trvalých nápravných opatření",
+          "dukaz_ucinnosti": "Protokoly měření pinů při každé přestavbě, aktualizovaný kontrolní plán"
+        },
+        {
+          "id": "D3-007",
+          "popis": "Ověření stavu pinů na všech nástrojích - přeměření současně používaných pinů",
+          "odpovdena_osoba": "Výrobní oddělení lisování",
+          "termin_zavedeni": "2025-09-03",
+          "termin_ukonceni": "2025-09-04",
+          "dukaz_ucinnosti": "Protokol měření - všechny piny ve specifikaci"
+        },
+        {
+          "id": "D3-008",
+          "popis": "Nový protokol pro podezřelé loty - nesmí být uskladněny v mezi-skladu, zůstávají na výrobě a provádí se okamžité třídění",
+          "odpovdena_osoba": "Vedoucí výroby sheetu",
+          "termin_zavedeni": "2025-09-04",
+          "termin_ukonceni": "Trvalé opatření",
+          "dukaz_ucinnosti": "Aktualizovaná pracovní instrukce, školení operátorů"
+        }
+      ],
+      "posouzeni_rizik": "Rizika: Blokace expedice může způsobit zpoždění dodávek (akceptovatelné vzhledem k ochraně zákazníka). Pozastavení výroby má minimální dopad na plánování. Zvýšená frekvence kontroly má minimální riziko zpomalení výroby. Vedlejší účinky: Zvýšená důvěra zákazníka díky proaktivnímu přístupu. Zlepšená detekce potenciálních problémů."
+    },
+    "nice_to_have": {
+      "prubezna_dokumentace": [
+        {
+          "datum": "2025-09-04",
+          "poznamka": "Zahájena blokace expedice, zákazník informován o třídění"
+        },
+        {
+          "datum": "2025-09-05",
+          "poznamka": "Dokončena kontrola skladových zásob - 0 vadných"
+        },
+        {
+          "datum": "2025-09-06",
+          "poznamka": "Dokončeno přetřídění vrácených a připravených zásilek"
+        },
+        {
+          "datum": "2025-09-11",
+          "poznamka": "Zákazník dokončil třídění, protokol obdržen"
+        }
+      ],
+      "metodicke_stanoveni_rizika": "Použita matice rizik s hodnocením pravděpodobnosti a dopadu. Všechna okamžitá opatření byla hodnocena na škále 1-5 pro riziko a vedlejší účinky.",
+      "dokumentace_vyberu": "Výběr opatření byl proveden týmem na základě analýzy je/není z D2. Priorita byla dána ochraně zákazníka (D3-001, D3-002) následovaná interní kontrolou (D3-003, D3-004) a prevencí (D3-005 až D3-008)."
+    }
+  },
+  
+  "D4": {
+    "must_have": {
+      "priciny": [
+        {
+          "id": "D4-001",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Opotřebované piny v lisovacím nástroji",
+          "kategorie_vda": "Nástroj/Výrobní prostředky",
+          "metoda_identifikace": "5x Proč + analýza je/není z D2",
+          "zpusob_overeni": "Aktivní - výměna pinů 1.7.2025 v 17:45 problém okamžitě vyřešila, následná výroba bez problémů",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-002",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Absence sledování životnosti pinů",
+          "kategorie_vda": "Proces/Metoda",
+          "metoda_identifikace": "Ishikawa diagram + 5x Proč",
+          "zpusob_overeni": "Pasivní - potvrzeno týmem 'nevíme kolik kusů piny vydrží', spoléháme se na institut podezřelého lotu",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-003",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Suboptimální kvalita pinů (tolerance na USL)",
+          "kategorie_vda": "Materiál/Komponenty",
+          "metoda_identifikace": "Ishikawa diagram",
+          "zpusob_overeni": "Pasivní - tolerance výšky pinů 0.03mm, při výrobě na USL delší životnost",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-004",
+          "kategorie": "vyskyt",
+          "uroven": "systemova",
+          "popis": "Chybějící systém predictivní údržby nástrojů",
+          "kategorie_vda": "Systém managementu/Plánování",
+          "metoda_identifikace": "5x Proč (proč není známa životnost pinů → nejsou vedeny záznamy)",
+          "zpusob_overeni": "Pasivní - preventivní údržba existuje ale neřeší kvalitu pinů, spoléhání na reaktivní detekci",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-005",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "popis": "Chybějící systematická kontrola kvality během výroby sheetu",
+          "kategorie_vda": "Proces/Kontrola",
+          "metoda_identifikace": "Analýza časové osy + Ishikawa diagram",
+          "zpusob_overeni": "Pasivní - operátor ID 22 neodhalil za 9 hodin, operátor ID JG odhalil náhodou, spoléhání na namátkové kontroly",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-006",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "popis": "Nedefinovaná odpovědnost za vizuální kontrolu při absenci skippera",
+          "kategorie_vda": "Proces/Organizace práce",
+          "metoda_identifikace": "Analýza procesu montáže + 5x Proč",
+          "zpusob_overeni": "Pasivní - potvrzeno že vizuální kontrolu provádí pouze skipper, žádný backup proces",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-007",
+          "kategorie": "detekce",
+          "uroven": "systemova",
+          "popis": "Motivační systém pro externí zaměstnance podporuje rychlost nad kvalitou",
+          "kategorie_vda": "Systém managementu/Lidské zdroje",
+          "metoda_identifikace": "5x Proč (proč operátor ignoruje přestávky a kontrolu)",
+          "zpusob_overeni": "Pasivní - externí operátor dostává peníze za 12h, ale může jít po 10h když splní normu → motivace pro rychlost bez ohledu na kvalitu",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-008",
+          "kategorie": "detekce",
+          "uroven": "systemova",
+          "popis": "Nedostatečné řízení kvality nástrojů",
+          "kategorie_vda": "Systém managementu/Kontrola kvality",
+          "metoda_identifikace": "Ishikawa diagram",
+          "zpusob_overeni": "Pasivní - chybí kontrolní body pro stav nástrojů, není měřena životnost pinů, chybí data o výkonu nástrojů",
+          "overeno": true,
+          "children": []
+        }
+      ],
+      "aktualizovane_hodnoceni_rizik": "Vysoké riziko: Opakování problému při pokračování současného systému podezřelých lotů. Vysoké riziko: Propuštění vadných produktů k zákazníkovi při spoléhání se pouze na náhodné kontroly. Vysoké riziko: Systematické selhání kontroly kvality v důsledku nevhodného motivačního systému. Střední riziko: Předčasné opotřebení nástrojů při používání pinů na spodní hranici tolerance. Střední riziko: Neefektivní využití nástrojů bez znalosti jejich skutečné životnosti."
+    },
+    "nice_to_have": {
+      "dokumentace_postupu": "Použita kombinace metod: 5x Proč pro hloubkovou analýzu, Ishikawa diagram pro komplexní pohled na všechny možné příčiny, analýza je/není pro ověření příčin. Tým provedl systematickou identifikaci příčin ve dvou fázích: 1) technické příčiny, 2) systémové příčiny.",
+      "srozumitelnost_pro_nezucastnene": "Všechny příčiny jsou zdokumentovány včetně způsobu jejich identifikace a ověření. K dispozici jsou fotografie, protokoly měření a záznamy z výroby. Ishikawa diagram vizualizuje vztahy mezi příčinami. Timeline ukazuje chronologii událostí vedoucích k problému."
+    }
+  },
+  
+  "D5": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "D5-001",
+          "pricina_id": "D4-001",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "Výměna pinů (okamžité řešení)",
+              "hodnoceni_efektivnosti": "Vysoká účinnost, nízká efektivita (neřeší příčinu opotřebení)"
+            },
+            {
+              "popis": "Kontrolní měření při changeover (trvalé řešení)",
+              "hodnoceni_efektivnosti": "Vysoká účinnost i efektivita, preventivní přístup"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Kontrolní měření délky burring pin + burring backup pin mikrometrem 0-50mm při každém changeover",
+            "oduvodneni": "Umožní včasné odhalení opotřebení před vznikem vadných produktů. Implementace v místnosti technické kontroly, provádí operátoři lisování rotačně.",
+            "overeni": "MSA pro měření pinů (technik kvality)",
+            "odpovdena_osoba": "Jana Nováková (technik kvality)",
+            "termin": "2025-09-20"
+          },
+          "tasks": [
+            {
+              "id": "D5-001-T1",
+              "popis": "Příprava inspekčních plánů v CAQ PALSTAT",
+              "odpovdena_osoba": "Jana Nováková",
+              "termin": "2025-09-15",
+              "typ": "serialni",
+              "status": "done"
+            },
+            {
+              "id": "D5-001-T2",
+              "popis": "Doplnění evidence čištění o sloupec 'Kontrolu pinů provedl' + ID záznamu",
+              "odpovdena_osoba": "Údržba",
+              "termin": "2025-09-18",
+              "typ": "paralelni",
+              "status": "in_progress"
+            },
+            {
+              "id": "D5-001-T3",
+              "popis": "MSA studie pro měření pinů",
+              "odpovdena_osoba": "Jana Nováková",
+              "termin": "2025-09-20",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-002",
+          "pricina_id": "D4-002",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "Statistická analýza historických dat",
+              "hodnoceni_efektivnosti": "Nízká efektivita - nedostatek dat"
+            },
+            {
+              "popis": "Experiment se sledováním opotřebení pinů",
+              "hodnoceni_efektivnosti": "Vysoká efektivita - získání reálných dat pro stanovení limitů"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Experiment se sledováním opotřebení pinů na vybraných produktech (H2247 a DA110). Měření po 4 cívkách vstupního materiálu (cca max. 18.000 ks).",
+            "oduvodneni": "Získání dat pro stanovení prediktivních limitů pro všechny produkty. Operátor 22 jako primární, proškolení ostatních operátorů jako backup.",
+            "overeni": "Statistická analýza naměřených dat, stanovení control limits",
+            "odpovdena_osoba": "Pavel Dvořák (procesní technik)",
+            "termin": "2025-11-30"
+          },
+          "tasks": [
+            {
+              "id": "D5-002-T1",
+              "popis": "Příprava Excel sešitu pro záznam dat experimentu",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-09-20",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-002-T2",
+              "popis": "Vložení upozornění do boxů s nástroji",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-09-22",
+              "typ": "paralelni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-002-T3",
+              "popis": "Proškolení backup operátorů",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-09-25",
+              "typ": "paralelni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-003",
+          "pricina_id": "D4-003",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "Změna dodavatele pinů",
+              "hodnoceni_efektivnosti": "Střední efektivita - dlouhá implementace, nejistý výsledek"
+            },
+            {
+              "popis": "Povlakování pinů pro prodloužení životnosti",
+              "hodnoceni_efektivnosti": "Vysoká efektivita - prokázané prodloužení životnosti"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Povlakování CrAlN nebo CrWN pro piny pod LSL",
+            "oduvodneni": "Použitý materiál je state-of-the-art, povlakování prodlouží životnost pinů při zachování stávajícího dodavatele.",
+            "overeni": "Test životnosti na povlakovaných pinech",
+            "odpovdena_osoba": "Pavel Dvořák (procesní technik)",
+            "termin": "2025-10-15"
+          },
+          "tasks": [
+            {
+              "id": "D5-003-T1",
+              "popis": "Výběr dodavatele povlaků",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-09-30",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-003-T2",
+              "popis": "Testovací dávka povlakovaných pinů",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-10-10",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-004",
+          "pricina_id": "D4-004",
+          "kategorie": "vyskyt",
+          "uroven": "systemova",
+          "mozna_opatreni": [
+            {
+              "popis": "Implementace CMMS systému",
+              "hodnoceni_efektivnosti": "Vysoká efektivita, ale vysoké náklady a dlouhá implementace"
+            },
+            {
+              "popis": "Systémová úprava procesů - pracovní postupy + APQP tracker",
+              "hodnoceni_efektivnosti": "Střední efektivita, rychlá implementace, nízké náklady"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Úprava pracovního postupu pro přestavbu + checklist měření pinů. Úprava APQP trackeru - nová položka pro přípravu inspekčních plánů.",
+            "oduvodneni": "Systematické zajištění kontroly nástrojů již od fáze přípravy výroby. Integrace do stávajících procesů bez nutnosti nového software.",
+            "overeni": "Audit dodržování aktualizovaných postupů",
+            "odpovdena_osoba": "Manažer kvality",
+            "termin": "2025-09-30"
+          },
+          "tasks": [
+            {
+              "id": "D5-004-T1",
+              "popis": "Úprava pracovního postupu přestavby",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-09-25",
+              "typ": "paralelni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-004-T2",
+              "popis": "Úprava APQP trackeru",
+              "odpovdena_osoba": "Robert Veselý",
+              "termin": "2025-09-28",
+              "typ": "paralelni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-005",
+          "pricina_id": "D4-005",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "100% kontrola na konci každé směny",
+              "hodnoceni_efektivnosti": "Vysoká účinnost, nízká efektivita (časově náročné)"
+            },
+            {
+              "popis": "Standardizace kontrolního procesu (flow diagram, PFMEA, kontrolní plán, pracovní postup)",
+              "hodnoceni_efektivnosti": "Vysoká účinnost i efektivita, systematický přístup"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Standardizace kontrolního procesu: Process flow diagram s kontrolními body, PFMEA kontrolního procesu, kontrolní plán pro systematické kontroly, pracovní postup pro operátory.",
+            "oduvodneni": "Vytvoření strukturovaného systému kontroly kvality, který není závislý na jednotlivcích.",
+            "overeni": "Audit dodržování kontrolního procesu, analýza výsledků kontrol",
+            "odpovdena_osoba": "Jana Nováková (technik kvality)",
+            "termin": "2025-10-15"
+          },
+          "tasks": [
+            {
+              "id": "D5-005-T1",
+              "popis": "Process flow diagram - doplnění kontrolních bodů",
+              "odpovdena_osoba": "Jana Nováková",
+              "termin": "2025-09-30",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-005-T2",
+              "popis": "PFMEA kontrolního procesu",
+              "odpovdena_osoba": "Jana Nováková",
+              "termin": "2025-10-05",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-005-T3",
+              "popis": "Kontrolní plán pro systematické kontroly",
+              "odpovdena_osoba": "Jana Nováková",
+              "termin": "2025-10-10",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "D5-005-T4",
+              "popis": "Pracovní postup pro operátory",
+              "odpovdena_osoba": "Pavel Dvořák",
+              "termin": "2025-10-15",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-006",
+          "pricina_id": "D4-006",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "Vytvoření backup procesu pro absenci skippera",
+              "hodnoceni_efektivnosti": "Střední účinnost - problém nebyl v absenci procesu, ale v jeho nedodržení"
+            },
+            {
+              "popis": "Proškolení operátorů montáže o dodržování procesu",
+              "hodnoceni_efektivnosti": "Vysoká účinnost - řeší kořenovou příčinu"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Proškolení operátorů montáže: Dodržování procesu - zákaz balení a vizuální kontroly bez skippera, zákaz jakékoliv manipulace po operaci kontroly kontrolním strojem.",
+            "oduvodneni": "Problém způsoben externím zaměstnancem testujícím hranice, potřeba zdůraznit důležitost dodržování procesu.",
+            "overeni": "Audit dodržování procesu montáže, záznamy z kontrol",
+            "odpovdena_osoba": "Vedoucí výroby montáže",
+            "termin": "2025-09-25"
+          },
+          "tasks": [
+            {
+              "id": "D5-006-T1",
+              "popis": "Školení operátorů montáže",
+              "odpovdena_osoba": "Vedoucí výroby montáže",
+              "termin": "2025-09-25",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-007",
+          "pricina_id": "D4-007",
+          "kategorie": "detekce",
+          "uroven": "systemova",
+          "mozna_opatreni": [
+            {
+              "popis": "Změna motivačního systému pro externí zaměstnance",
+              "hodnoceni_efektivnosti": "Vysoká účinnost, ale komplexní implementace vyžadující zapojení HR a vedení"
+            },
+            {
+              "popis": "Proškolení vedoucích směn + důsledné prosazování přestávek",
+              "hodnoceni_efektivnosti": "Střední účinnost, rychlá implementace"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Proškolení vedoucích směn o odpovědnosti za dodržování přestávek (důvody: BOZP + kvalita produktů). Důsledné prosazování dodržování přestávek vedoucím směny.",
+            "oduvodneni": "Okamžité opatření před případnou změnou motivačního systému. Zdůraznění odpovědnosti vedoucích směn.",
+            "overeni": "Audit dodržování přestávek, kontrola záznamů docházky",
+            "odpovdena_osoba": "Personální oddělení",
+            "termin": "2025-09-30"
+          },
+          "tasks": [
+            {
+              "id": "D5-007-T1",
+              "popis": "Školení vedoucích směn",
+              "odpovdena_osoba": "Personální oddělení",
+              "termin": "2025-09-30",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "D5-008",
+          "pricina_id": "D4-008",
+          "kategorie": "detekce",
+          "uroven": "systemova",
+          "mozna_opatreni": [
+            {
+              "popis": "Samostatný systém řízení kvality nástrojů",
+              "hodnoceni_efektivnosti": "Duplikace opatření z D5-001, D5-002, D5-004"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Řešeno kombinací opatření D5-001 (kontrolní měření pinů), D5-002 (sledování životnosti experimentem), D5-004 (systémová úprava procesů).",
+            "oduvodneni": "Komplexní přístup pokrývající všechny aspekty řízení kvality nástrojů.",
+            "overeni": "Kombinace validací z opatření D5-001, D5-002, D5-004",
+            "odpovdena_osoba": "Kombinace odpovědností",
+            "termin": "2025-11-30"
+          },
+          "tasks": []
+        }
+      ],
+      "posouzeni_vedlejsich_ucinku": "Zatím neidentifikovány žádné významné nežádoucí účinky navržených opatření. Všechna opatření byla posouzena z hlediska dopadu na produktivitu, náklady a pracovní zátěž.",
+      "akcni_plan": "Akční plán je strukturován podle priority: 1) Opatření pro zajištění detekce (D5-001, D5-005, D5-006) - termín září 2025, 2) Systémová opatření (D5-004, D5-007) - termín září 2025, 3) Dlouhodobá opatření (D5-002, D5-003) - termín říjen-listopad 2025."
+    },
+    "nice_to_have": {
+      "rozhodovaci_matice": [
+        {
+          "kriterium": "Účinnost",
+          "vaha": 40,
+          "hodnoceni": [
+            {"opatreni": "D5-001", "body": 5},
+            {"opatreni": "D5-002", "body": 4},
+            {"opatreni": "D5-005", "body": 5}
+          ]
+        },
+        {
+          "kriterium": "Efektivita (náklady)",
+          "vaha": 30,
+          "hodnoceni": [
+            {"opatreni": "D5-001", "body": 4},
+            {"opatreni": "D5-002", "body": 5},
+            {"opatreni": "D5-005", "body": 4}
+          ]
+        },
+        {
+          "kriterium": "Rychlost implementace",
+          "vaha": 30,
+          "hodnoceni": [
+            {"opatreni": "D5-001", "body": 5},
+            {"opatreni": "D5-002", "body": 3},
+            {"opatreni": "D5-005", "body": 4}
+          ]
+        }
+      ],
+      "dokumentace_vyberu": "Výběr opatření byl proveden na základě rozhodovací matice s váženým hodnocením kritérií. Tým se shodl na prioritizaci opatření zajišťujících okamžitou detekci problémů (D5-001, D5-005) následovaných dlouhodobými systémovými opatřeními (D5-002, D5-004). Všechna opatření byla diskutována a schválena týmem včetně sponzora."
+    }
+  },
+  
+  "D6": {
+    "must_have": {
+      "realizace": [
+        {
+          "opatreni_id": "D5-001",
+          "stav_realizace": "realizovano",
+          "datum_realizace": "2025-09-20",
+          "zpusob_validace": "MSA studie pro měření pinů. Audit dodržování kontroly při 5 changeoverech. Analýza záznamů z CAQ PALSTAT.",
+          "vysledek_validace": "MSA studie úspěšná, Gage R&R < 10%. Všechny kontroly při changeoveru byly provedeny správně. Žádné vadné díly detekovány po implementaci."
+        },
+        {
+          "opatreni_id": "D5-002",
+          "stav_realizace": "v_prubhu",
+          "datum_realizace": "2025-09-25",
+          "zpusob_validace": "Průběžné sledování naměřených dat, kontrola dodržování frekvence měření.",
+          "vysledek_validace": "Experiment zahájen 25.9.2025. Dosud naměřeno 50 datových bodů z plánovaných 200. Zatím bez abnormalit."
+        },
+        {
+          "opatreni_id": "D5-003",
+          "stav_realizace": "v_prubhu",
+          "datum_realizace": "2025-10-10",
+          "zpusob_validace": "Test životnosti povlakovaných pinů na produkčním objemu.",
+          "vysledek_validace": "Testovací dávka povlakovaných pinů obdržena. Test životnosti probíhá, očekávané ukončení 15.11.2025."
+        },
+        {
+          "opatreni_id": "D5-004",
+          "stav_realizace": "realizovano",
+          "datum_realizace": "2025-09-28",
+          "zpusob_validace": "Audit dodržování aktualizovaných postupů. Kontrola APQP trackeru u nových projektů.",
+          "vysledek_validace": "Pracovní postup aktualizován a zkontrolován auditem. APQP tracker obsahuje novou položku, ověřeno na 2 nových projektech."
+        },
+        {
+          "opatreni_id": "D5-005",
+          "stav_realizace": "realizovano",
+          "datum_realizace": "2025-10-15",
+          "zpusob_validace": "Audit dodržování kontrolního procesu. Analýza výsledků kontrol za období 2 týdnů.",
+          "vysledek_validace": "Všechny dokumenty vytvořeny a schváleny. Operátoři proškoleni. Audit potvrdil 100% dodržování procesu. Žádné vadné díly uniklé do dalšího procesu."
+        },
+        {
+          "opatreni_id": "D5-006",
+          "stav_realizace": "realizovano",
+          "datum_realizace": "2025-09-25",
+          "zpusob_validace": "Audit dodržování procesu montáže, kontrola záznamů.",
+          "vysledek_validace": "Všichni operátoři montáže proškoleni. Audit po 2 týdnech potvrdil 100% dodržování procesu. Žádné další incidenty."
+        },
+        {
+          "opatreni_id": "D5-007",
+          "stav_realizace": "realizovano",
+          "datum_realizace": "2025-09-30",
+          "zpusob_validace": "Audit dodržování přestávek, kontrola záznamů docházky.",
+          "vysledek_validace": "Vedoucí směn proškoleni. Audit po 2 týdnech potvrdil zlepšení v dodržování přestávek. Žádné případy práce bez přestávky."
+        },
+        {
+          "opatreni_id": "D5-008",
+          "stav_realizace": "v_prubhu",
+          "datum_realizace": "-",
+          "zpusob_validace": "Kombinace validací z D5-001, D5-002, D5-004",
+          "vysledek_validace": "Průběžná validace podle stavu jednotlivých opatření. Očekávané dokončení 30.11.2025."
+        }
+      ],
+      "zruseni_okamzitych_opatreni": [
+        {
+          "opatreni_id": "D3-001",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-09-12",
+          "oduvodneni": "Zákazník dokončil třídění, všechny vadné kusy identifikovány a vyřazeny. Trvalá nápravná opatření zavedena a validována."
+        },
+        {
+          "opatreni_id": "D3-002",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-10-20",
+          "oduvodneni": "Blokace expedice zrušena po validaci trvalých nápravných opatření D5-001 a D5-005. Všechny zásoby prošly finální kontrolou."
+        },
+        {
+          "opatreni_id": "D3-003",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-09-06",
+          "oduvodneni": "Třídění dokončeno, všechny vadné kusy vyřazeny. Dočasné opatření nahrazeno systematickou kontrolou z D5-005."
+        },
+        {
+          "opatreni_id": "D3-004",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-09-05",
+          "oduvodneni": "Kontrola skladových zásob dokončena s negativním nálezem. Není potřeba dalších opatření."
+        },
+        {
+          "opatreni_id": "D3-005",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-10-20",
+          "oduvodneni": "Výroba P/N CZ/DA110-0O-2K obnovena po validaci trvalých nápravných opatření. První výrobní dávka zkontrolována s negativním nálezem."
+        },
+        {
+          "opatreni_id": "D3-006",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-09-20",
+          "oduvodneni": "Rozšířená kontrola nahrazena standardní kontrolou při changeover dle D5-001. Časový limit 3 dny/3 směny již není potřeba."
+        },
+        {
+          "opatreni_id": "D3-007",
+          "stav": "zruseno",
+          "datum_zruseni": "2025-09-04",
+          "oduvodneni": "Jednorázové ověření dokončeno, všechny piny v pořádku. Nahrazeno pravidelnou kontrolou dle D5-001."
+        },
+        {
+          "opatreni_id": "D3-008",
+          "stav": "v_platnosti",
+          "datum_zruseni": "-",
+          "oduvodneni": "Toto opatření zůstává v platnosti jako trvalá změna procesu. Protokol pro podezřelé loty je nyní součástí standardního postupu."
+        }
+      ]
+    },
+    "nice_to_have": {
+      "dokumentace_validace": [
+        {
+          "typ": "experiment",
+          "popis": "MSA studie pro měření pinů - Gage R&R analýza",
+          "cesta": "/uploads/PC-123/validation/MSA_pins_092025.xlsx"
+        },
+        {
+          "typ": "fotografie",
+          "popis": "Fotodokumentace kontrolního měření pinů při changeover",
+          "cesta": "/uploads/PC-123/validation/changeover_inspection_photos.zip"
+        },
+        {
+          "typ": "vykres",
+          "popis": "Aktualizovaný process flow diagram s kontrolními body",
+          "cesta": "/uploads/PC-123/validation/process_flow_v2.pdf"
+        },
+        {
+          "typ": "test",
+          "popis": "Protokol z auditu dodržování kontrolního procesu",
+          "cesta": "/uploads/PC-123/validation/audit_report_101525.pdf"
+        },
+        {
+          "typ": "dokument",
+          "popis": "Záznamy z CAQ PALSTAT - kontroly pinů",
+          "cesta": "/uploads/PC-123/validation/palstat_records_09-10_2025.xlsx"
+        }
+      ],
+      "srozumitelnost_validace": "Validace každého opatření byla provedena systematicky s použitím měřitelných metrik. Jsou k dispozici protokoly z auditů, fotodokumentace, záznamy z měření a analýzy dat. Každá validace má jasně definovaná kritéria úspěchu a způsob měření účinnosti.",
+      "trvale_zakotveni": "Všechna opatření jsou zakotvena v příslušné dokumentaci: Pracovní postupy, kontrolní plány, PFMEA, APQP tracker, inspekční plány v CAQ PALSTAT. Operátoři byli proškoleni a školení je zdokumentováno. Pravidelné audity zajistí dlouhodobé dodržování."
+    }
+  },
+  
+  "D7": {
+    "must_have": {
+      "srovnatelne_produkty_procesy": [
+        "Všechny sheety vyráběné na dvou-krokových lisovacích nástrojích (cca 15 referencí)",
+        "Lisovací procesy s podobnými nástroji na strojích ML02, ML03, ML05",
+        "Procesy s piny nebo podobnými opotřebovávajícími se komponenty",
+        "Ostatní výrobní linky kde se spoléháme na 'podezřelé loty' místo systematické kontroly"
+      ],
+      "aktualizovane_dokumenty": [
+        {
+          "nazev": "PFMEA lisovacích procesů",
+          "zpusob_aktualizace": "Přidána nová failure mode: Opotřebení pinů v nástroji. Zvýšeno RPN pro detekci. Přidána kontrola pinů při changeover jako preventivní opatření.",
+          "odpovdena_osoba": "Jana Nováková",
+          "datum": "2025-09-30",
+          "dostupnost": true
+        },
+        {
+          "nazev": "Kontrolní plán pro výrobu sheetů",
+          "zpusob_aktualizace": "Přidán kontrolní bod: Měření pinů při changeover. Frekvence: Při každé přestavbě. Metoda: Mikrometr 0-50mm. Kritéria přijetí: dle specifikace nástrojů.",
+          "odpovdena_osoba": "Jana Nováková",
+          "datum": "2025-09-20",
+          "dostupnost": true
+        },
+        {
+          "nazev": "Pracovní postup pro přestavbu (changeover)",
+          "zpusob_aktualizace": "Doplněn krok: Kontrola a měření pinů. Checklist pro měření. Reference na inspekční plán v CAQ PALSTAT.",
+          "odpovdena_osoba": "Pavel Dvořák",
+          "datum": "2025-09-25",
+          "dostupnost": true
+        },
+        {
+          "nazev": "APQP tracker",
+          "zpusob_aktualizace": "Přidána nová položka: Příprava inspekčních plánů pro kontrolu kritických komponent nástrojů. Garant: Technik kvality. Termín: Před spuštěním sériové výroby.",
+          "odpovdena_osoba": "Robert Veselý",
+          "datum": "2025-09-28",
+          "dostupnost": true
+        },
+        {
+          "nazev": "Pracovní instrukce pro 'podezřelé loty'",
+          "zpusob_aktualizace": "Aktualizována procedura: Podezřelé loty nesmí být uskladněny v mezi-skladu, zůstávají na výrobě a provádí se okamžité třídění. Definována odpovědnost vedoucího výroby.",
+          "odpovdena_osoba": "Pavel Dvořák",
+          "datum": "2025-09-15",
+          "dostupnost": true
+        },
+        {
+          "nazev": "Školící materiály pro operátory",
+          "zpusob_aktualizace": "Přidána kapitola: Význam dodržování kontrolních postupů a přestávek pro kvalitu produktů. Důsledky nedodržování procesu.",
+          "odpovdena_osoba": "Personální oddělení",
+          "datum": "2025-09-30",
+          "dostupnost": true
+        }
+      ],
+      "posouzeni_aplikovatelnosti": "Poznatky z tohoto případu jsou aplikovatelné na: 1) Všechny lisovací procesy s podobnými nástroji, 2) Procesy kde se používají opotřebovávající se komponenty, 3) Výrobní linky kde není systematická kontrola kritických parametrů během výroby. Identifikováno 15 referencí sheetů a 3 další produktové skupiny kde by měla být aplikována stejná opatření."
+    },
+    "nice_to_have": {
+      "lessons_learned": {
+        "odpovdena_osoba": "Robert Veselý (manažer kvality)",
+        "prijeti_potvrzeno": true,
+        "datum": "2025-10-15"
+      },
+      "dokumentace_prenosu": "Poznatky z 8D byly prezentovány na: 1) Měsíční schůzce kvality (30.9.2025), 2) Týmové schůzce výroby sheetů (2.10.2025), 3) Management review (15.10.2025). Lessons Learned dokument obsahuje: Technické poznatky o opotřebení pinů, systémové nedostatky v kontrole kvality nástrojů, důležitost systematické kontroly vs. spoléhání na podezřelé loty, vliv motivačního systému na kvalitu. Dokument je dostupný v knowledge base systému s klíčovými slovy: lisování, nástroje, piny, kontrola kvality, podezřelé loty."
+    }
+  },
+  
+  "D8": {
+    "must_have": {
+      "stav_opatreni": [
+        {"opatreni_id": "D5-001", "stav": "dokonceno"},
+        {"opatreni_id": "D5-002", "stav": "v_prubhu"},
+        {"opatreni_id": "D5-003", "stav": "v_prubhu"},
+        {"opatreni_id": "D5-004", "stav": "dokonceno"},
+        {"opatreni_id": "D5-005", "stav": "dokonceno"},
+        {"opatreni_id": "D5-006", "stav": "dokonceno"},
+        {"opatreni_id": "D5-007", "stav": "dokonceno"},
+        {"opatreni_id": "D5-008", "stav": "v_prubhu"}
+      ],
+      "uvolneni": {
+        "datum": "2025-10-20",
+        "sponzor": "Ing. Novák",
+        "vedouci_tymu": "Robert Veselý"
+      },
+      "oceneni_tymu": true,
+      "rozpusteni_tymu": true
+    },
+    "nice_to_have": {
+      "zpusob_oceneni": "Závěrečné jednání konané 20.10.2025 za účasti všech členů týmu, sponzora a ředitele kvality. Tým byl oceněn za: Systematický přístup k řešení problému, rychlou reakci na zákaznickou reklamaci, důkladnou analýzu příčin, efektivní návrh a implementaci opatření. Každý člen týmu obdržel certifikát o účasti na 8D projektu. Výsledky projektu byly prezentovány na management review.",
+      "ziskane_poznatky": [
+        "Systematická kontrola kritických komponent nástrojů je efektivnější než spoléhání na detekci problémů operátory",
+        "Institut 'podezřelých lotů' není náhradou za systematickou kontrolu kvality během výroby",
+        "Motivační systém pro externí zaměstnance může mít nezamýšlený negativní vliv na kvalitu produktů",
+        "Preventivní údržba musí zahrnovat nejen funkčnost nástrojů, ale i kvalitu vyráběných dílů",
+        "Dokumentace procesů (PFMEA, kontrolní plány) musí být aktualizována na základě poznatků z reklamací",
+        "Důležitost APQP procesu pro zajištění kontroly kvality již ve fázi přípravy výroby",
+        "Proaktivní komunikace se zákazníkem a transparentní řešení problémů posiluje důvěru"
+      ],
+      "samohodnoceni": {
+        "provedeno": true,
+        "vysledek_procent": 92
+      },
+      "externi_hodnoceni": {
+        "provedeno": true,
+        "hodnotitel": "Mgr. Martin Kovář (nezávislý hodnotitel)"
+      },
+      "zavrecne_jednani": {
+        "datum": "2025-10-20",
+        "ucastnici": [
+          "Robert Veselý (vedoucí týmu)",
+          "Ing. Novák (sponzor)",
+          "Pavel Dvořák (člen týmu)",
+          "Operátor ID 22 (člen týmu)",
+          "Jana Nováková (člen týmu)",
+          "Tomáš Černý (člen týmu)",
+          "Ing. Petra Svobodová (moderátor 8D)",
+          "Mgr. Martin Kovář (nezávislý hodnotitel)",
+          "Ředitel kvality (host)"
+        ]
+      }
+    }
+  }
+}
