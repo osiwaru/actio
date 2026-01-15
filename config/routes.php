@@ -44,6 +44,10 @@ $router->delete('/attachments/{id}', 'AttachmentController@destroy');
 // $router->get('/export/csv', 'ExportController@csv');
 // $router->get('/export/excel', 'ExportController@excel');
 
+// 8D Reporting
+$router->get('/8d', 'EightDController@index');
+$router->get('/8d/{filename}', 'EightDController@show');
+
 // Auth
 $router->get('/login', 'AuthController@showLogin');
 $router->post('/login', 'AuthController@login');

@@ -38,15 +38,14 @@ return [
         'page' => 'audit-sessions',
     ],
 
-    // 8D Reporting section (Phase 2 - uncomment when ready)
-    // ['header' => '8D Reporting'],
-    // [
-    //     'icon' => 'bi-diagram-3',
-    //     'label' => '8D Případy',
-    //     'url' => '/8d',
-    //     'page' => '8d',
-    //     'roles' => ['admin', 'auditor'],
-    // ],
+    // 8D Reporting section
+    ['header' => '8D Reporting'],
+    [
+        'icon' => 'bi-diagram-3',
+        'label' => '8D Případy',
+        'url' => '/8d',
+        'page' => '8d',
+    ],
 
     // Archiv section
     ['header' => 'Archiv'],
