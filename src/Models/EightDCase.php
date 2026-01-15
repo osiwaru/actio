@@ -149,11 +149,41 @@ class EightDCase extends BaseModel
     }
 
     /**
-     * Check if D-step has data
+     * Check if D-step has meaningful data (not just empty structure)
      */
     public function hasStep(string $step): bool
     {
-        return isset($this->attributes[$step]) && !empty($this->attributes[$step]);
+        if (!isset($this->attributes[$step])) {
+            return false;
+        }
+        
+        $stepData = $this->attributes[$step];
+        $mustHave = $stepData['must_have'] ?? [];
+        
+        // Check if must_have has any meaningful content
+        return $this->hasNonEmptyContent($mustHave);
+    }
+
+    /**
+     * Recursively check if array has non-empty content
+     */
+    private function hasNonEmptyContent(mixed $data): bool
+    {
+        if (is_string($data)) {
+            return trim($data) !== '';
+        }
+        
+        if (is_array($data)) {
+            foreach ($data as $value) {
+                if ($this->hasNonEmptyContent($value)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // booleans, numbers are considered as content
+        return $data !== null;
     }
 
     /**

@@ -1,0 +1,330 @@
+{
+  "meta": {
+    "cislo_pripadu": "PC-2025-001",
+    "nazev": "Nesprávný tvar dílu CZ/DA141-0O - neúplný posuv pásu při lisování",
+    "datum_vzniku": "2025-01-14",
+    "verze": "1.0",
+    "status": "in_progress",
+    "zakaznik": "LPR",
+    "posledni_aktualizace": "2025-01-15"
+  },
+  
+  "D1": {
+    "must_have": {
+      "vedouci_tymu": {
+        "jmeno": "Robert Veselý",
+        "oddeleni": "Kvalita",
+        "kontakt": ""
+      },
+      "sponzor": {
+        "jmeno": "AS",
+        "pozice": "",
+        "kontakt": ""
+      },
+      "clenove": [
+        {
+          "jmeno": "JN",
+          "role": "Group leader",
+          "oddeleni": "Výroba",
+          "kontakt": ""
+        },
+        {
+          "jmeno": "MD",
+          "role": "Procesní inženýr",
+          "oddeleni": "Technologie",
+          "kontakt": ""
+        },
+        {
+          "jmeno": "TG",
+          "role": "Technik kvality",
+          "oddeleni": "Kvalita",
+          "kontakt": ""
+        }
+      ],
+      "odborne_oblasti_zastoupeny": true,
+      "kompetence_8d": true
+    },
+    "nice_to_have": {
+      "komunikacni_cesty": {
+        "interni": "Email/Teams",
+        "externi": "Vedoucí týmu koordinuje komunikaci se zákazníkem LPR",
+        "frekvence_setkani": "Dle potřeby"
+      },
+      "moderator_8d": {
+        "jmeno": "",
+        "kontakt": ""
+      },
+      "nezavisly_hodnotitel": {
+        "jmeno": "",
+        "kontakt": ""
+      }
+    }
+  },
+  
+  "D2": {
+    "must_have": {
+      "popis_problemu": {
+        "objekt": "CZ/DA141-0O (zákaznické č. 1EA.423.163)",
+        "odchylka": "Nesprávný tvar dílu - deformace v důsledku neúplného posuvu pásu mezi 1. a 2. krokem lisování na postupové formě"
+      },
+      "prehled_skutecnosti": {
+        "co": "Produkt CZ/DA141-0O, formování na postupové formě (plech 1.5mm): 1. krok střih základního tvaru, 2. krok ohnutí na tvar, 3. krok deep draw výstupku. Odchylka: neúplný posuv mezi 1. a 2. krokem způsobil deformaci.",
+        "kde": "Stroj ML03, výrobní oddělení Lisování (Multilayer), detekováno u zákazníka LPR",
+        "kdy": "Výroba vadného lotu: 02.09.2025, Oprava feederu: 18.09.2025, Breakpoint: 01.10.2025, Varování od zákazníka: 14.01.2026, Historický výskyt: 23.06.2020",
+        "kolik": "Reportováno zákazníkem: 3 ks (všechny z jednoho boxu), SUSPECT zásilky: 4 zásilky cca 103 680 ks"
+      },
+      "analyza_je_neni": [
+        {
+          "kategorie": "Co",
+          "je": ["CZ/DA141-0O", "Nesprávný tvar z neúplného posuvu"],
+          "neni": ["Jiné produkty na ML03"]
+        },
+        {
+          "kategorie": "Kde",
+          "je": ["Stroj ML03", "Lot ML03010209250103"],
+          "neni": ["Jiné stroje"]
+        },
+        {
+          "kategorie": "Kdy",
+          "je": ["02.09.2025 (výroba)", "Před úpravou feederu 18.09."],
+          "neni": ["Výroba po 01.10.2025 (breakpoint)"]
+        },
+        {
+          "kategorie": "Kolik",
+          "je": ["3 ks reportováno", "1 box", "SUSPECT 103 680 ks"],
+          "neni": ["Zásilky po breakpointu"]
+        }
+      ]
+    },
+    "nice_to_have": {
+      "doplnujici_dokumentace": [
+        {
+          "typ": "obrazek",
+          "popis": "Štítek vadného lotu",
+          "cesta": "1768378152385_image.png"
+        },
+        {
+          "typ": "obrazek",
+          "popis": "Fotografie vadného dílu s vyznačenou deformací",
+          "cesta": "1768378338056_image.png"
+        }
+      ],
+      "potencialni_dopady": "SUSPECT zásilky u zákazníka - riziko dalších vadných kusů",
+      "dalsi_metody": "Traceability analýza provedena"
+    }
+  },
+  
+  "D3": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "D3-001",
+          "popis": "Úprava feederu - mechanismus feederu upraven tak, aby při návratu do výchozí pozice nezasahoval předchozí sheet",
+          "odpovdena_osoba": "Výroba",
+          "termin_zavedeni": "2025-09-18",
+          "termin_ukonceni": "2025-09-18",
+          "dukaz_ucinnosti": "Výroba po úpravě bez problémů, breakpoint 01.10.2025"
+        },
+        {
+          "id": "D3-002",
+          "popis": "Přeškolení operátorů na finger-pointing metodu systematické vizuální kontroly",
+          "odpovdena_osoba": "Robert Veselý",
+          "termin_zavedeni": "2025-01-14",
+          "termin_ukonceni": "",
+          "dukaz_ucinnosti": "Probíhá"
+        },
+        {
+          "id": "D3-003",
+          "popis": "Informování zákazníka o příčině, traceability a stavu SUSPECT/OK zásilek",
+          "odpovdena_osoba": "Robert Veselý",
+          "termin_zavedeni": "2025-01-14",
+          "termin_ukonceni": "2025-01-14",
+          "dukaz_ucinnosti": "Email odeslán"
+        }
+      ],
+      "posouzeni_rizik": "SUSPECT zásilky (103 680 ks) již u zákazníka. Riziko dalších vadných kusů. Zákazníkovi doporučeno izolovat SUSPECT zásilky při dalším nálezu."
+    },
+    "nice_to_have": {
+      "prubezna_dokumentace": [
+        {
+          "datum": "2025-09-18",
+          "poznamka": "Úprava feederu provedena"
+        },
+        {
+          "datum": "2025-01-14",
+          "poznamka": "Obdrženo varování od zákazníka, zahájena analýza"
+        },
+        {
+          "datum": "2025-01-14",
+          "poznamka": "Email zákazníkovi s vysvětlením odeslán"
+        }
+      ],
+      "metodicke_stanoveni_rizika": "",
+      "dokumentace_vyberu": ""
+    }
+  },
+  
+  "D4": {
+    "must_have": {
+      "priciny": [
+        {
+          "id": "D4-V-T-001",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Feeder při návratu do výchozí pozice zasáhl a posunul předchozí sheet mimo pozici formování",
+          "kategorie_vda": "Nástroj/Výrobní prostředky",
+          "metoda_identifikace": "Rozhovor s operátorem, analýza procesu",
+          "zpusob_overeni": "Aktivní - úprava feederu 18.09.2025 problém vyřešila",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-V-T-002",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Při přestavbě linky vznikají vadné kusy než se odladí nastavení - standardní jev",
+          "kategorie_vda": "Proces/Metoda",
+          "metoda_identifikace": "Rozhovor s operátorem odpolední směny",
+          "zpusob_overeni": "Pasivní - potvrzeno operátorem, vadné kusy z jednoho boxu nasvědčují vzniku při přestavbě",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-V-S-001",
+          "kategorie": "vyskyt",
+          "uroven": "systemova",
+          "popis": "Chybí formalizovaný postup pro náběh po přestavbě - nechat proběhnout 20+ kusů do ruky a zkontrolovat před sériovou výrobou",
+          "kategorie_vda": "Systém managementu/Dokumentace",
+          "metoda_identifikace": "Analýza procesu, rozhovor s operátorem",
+          "zpusob_overeni": "Pasivní - postup není zdokumentován",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-D-T-001",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "popis": "Operátor neprováděl systematickou vizuální kontrolu (finger-pointing metoda), kontroloval chaoticky",
+          "kategorie_vda": "Kontrola/Inspekce",
+          "metoda_identifikace": "Audit, rozhovor s operátory balení",
+          "zpusob_overeni": "Pasivní - potvrzeno auditem",
+          "overeno": true,
+          "children": []
+        },
+        {
+          "id": "D4-D-S-001",
+          "kategorie": "detekce",
+          "uroven": "systemova",
+          "popis": "Opatření z 8D 2020 (tally sheet, pravidlo dokončit check při alarmu) nezabránila opakování - selhání systému",
+          "kategorie_vda": "Systém managementu/Efektivita opatření",
+          "metoda_identifikace": "Analýza historické 8D z 23.06.2020",
+          "zpusob_overeni": "Pasivní - stejná vada se opakovala po 5 letech",
+          "overeno": true,
+          "children": []
+        }
+      ],
+      "aktualizovane_hodnoceni_rizik": "Vysoké riziko: opakování problému pokud se nezavede formalizovaný postup pro náběh po přestavbě. Střední riziko: selhání vizuální kontroly při nedodržování finger-pointing metody."
+    },
+    "nice_to_have": {
+      "dokumentace_postupu": "5x Proč analýza, rozhovory s operátory, analýza historické 8D z 2020",
+      "srozumitelnost_pro_nezucastnene": ""
+    }
+  },
+  
+  "D5": {
+    "must_have": {
+      "opatreni": [],
+      "posouzeni_vedlejsich_ucinku": "",
+      "akcni_plan": ""
+    },
+    "nice_to_have": {
+      "rozhodovaci_matice": [],
+      "dokumentace_vyberu": ""
+    }
+  },
+  
+  "D6": {
+    "must_have": {
+      "realizace": [],
+      "zruseni_okamzitych_opatreni": []
+    },
+    "nice_to_have": {
+      "dokumentace_validace": [],
+      "srozumitelnost_validace": "",
+      "trvale_zakotveni": ""
+    }
+  },
+  
+  "D7": {
+    "must_have": {
+      "srovnatelne_produkty_procesy": [],
+      "aktualizovane_dokumenty": [],
+      "posouzeni_aplikovatelnosti": ""
+    },
+    "nice_to_have": {
+      "lessons_learned": {
+        "odpovdena_osoba": "",
+        "prijeti_potvrzeno": false,
+        "datum": ""
+      },
+      "dokumentace_prenosu": ""
+    }
+  },
+  
+  "D8": {
+    "must_have": {
+      "stav_opatreni": [],
+      "uvolneni": {
+        "datum": "",
+        "sponzor": "",
+        "vedouci_tymu": ""
+      },
+      "oceneni_tymu": false,
+      "rozpusteni_tymu": false
+    },
+    "nice_to_have": {
+      "zpusob_oceneni": "",
+      "ziskane_poznatky": [],
+      "samohodnoceni": {
+        "provedeno": false,
+        "vysledek_procent": 0
+      },
+      "externi_hodnoceni": {
+        "provedeno": false,
+        "hodnotitel": ""
+      },
+      "zavrecne_jednani": {
+        "datum": "",
+        "ucastnici": []
+      }
+    }
+  },
+
+  "historie": {
+    "souvisejici_8d": [
+      {
+        "datum": "2020-06-23",
+        "popis": "Stejná vada - díl mimo pozici",
+        "opatreni": [
+          "Čištění max 24h před výrobou (WI AA 004-LFS-OCM)",
+          "Formulář FB 006-PM-OCM pro předávání nástroje",
+          "Pravidlo dokončit running check při alarmu (WI AA 029-LFS-OCM)",
+          "Zavedení tally sheetu pro Multilayer produkty"
+        ],
+        "poznamka": "Opatření nezabránila opakování vady v 2025"
+      }
+    ]
+  },
+
+  "casova_osa": [
+    {"datum": "2020-06-23", "udalost": "Historický výskyt stejné vady, 8D uzavřeno"},
+    {"datum": "2025-09-02", "udalost": "Výroba vadného lotu ML03010209250103, operátor TMSK, stroj ML03"},
+    {"datum": "2025-09-18", "udalost": "Úprava feederu (implementace opravy)"},
+    {"datum": "2025-10-01", "udalost": "Breakpoint - začátek čisté výroby"},
+    {"datum": "2025-10-06", "udalost": "Expedice SUSPECT zásilek 81058898A/B"},
+    {"datum": "2025-10-27", "udalost": "Expedice SUSPECT zásilky 81063682A + BREAKPOINT OK 81063682B"},
+    {"datum": "2025-11-03", "udalost": "Expedice SUSPECT zásilky 81068432A/B"},
+    {"datum": "2026-01-14", "udalost": "Obdrženo varování od zákazníka (3 vadné kusy)"},
+    {"datum": "2026-01-14", "udalost": "Expedice zásilky 81079587A/B (po breakpointu, OK)"}
+  ]
+}

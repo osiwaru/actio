@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "cislo_pripadu": "PC-XXX",
+    "nazev": "Nekompletní balení CZ/G1632A-MO - chybějící sáček",
+    "datum_vzniku": "2025-11-14",
+    "verze": "1.0",
+    "status": "in_progress",
+    "zakaznik": "JAMO (Maroko)",
+    "posledni_aktualizace": "2026-01-12"
+  },
+  
+  "D1": {
+    "must_have": {
+      "vedouci_tymu": {
+        "jmeno": "",
+        "oddeleni": "",
+        "kontakt": ""
+      },
+      "sponzor": {
+        "jmeno": "",
+        "pozice": "",
+        "kontakt": ""
+      },
+      "clenove": [
+        {
+          "jmeno": "",
+          "role": "Operátor balení",
+          "oddeleni": "Výroba",
+          "kontakt": ""
+        }
+      ],
+      "odborne_oblasti_zastoupeny": true,
+      "kompetence_8d": true
+    },
+    "nice_to_have": {
+      "komunikacni_cesty": {
+        "interni": "",
+        "externi": "",
+        "frekvence_setkani": ""
+      },
+      "moderator_8d": {
+        "jmeno": "",
+        "kontakt": ""
+      },
+      "nezavisly_hodnotitel": {
+        "jmeno": "",
+        "kontakt": ""
+      }
+    }
+  },
+  
+  "D2": {
+    "must_have": {
+      "popis_problemu": {
+        "objekt": "Kartonové krabice CZ/G1632A-MO",
+        "odchylka": "Obsahují pouze 1 sáček (200 ks) místo požadovaných 2 sáčků (400 ks)"
+      },
+      "prehled_skutecnosti": {
+        "co": "Nekompletní balení - chybí 1 ze 2 sáčků v krabici",
+        "kde": "Balicí stanice, zařízení Deimos, pracoviště IM",
+        "kdy": "Výskyt 1: expedice 13.10.2025 (DN 81061152), operátor STS; Výskyt 2: baleno 17.10.2025, expedice 10.11.2025 (DN 81069792, lot IM4D011710250103), operátor LCE",
+        "kolik": "2 potvrzené případy, 2 různí operátoři (záskok STS + stálý operátor LCE)"
+      },
+      "analyza_je_neni": [
+        {
+          "kategorie": "Produkt",
+          "je": ["CZ/G1632A-MO", "Balení 2×200 ks do boxu 400 ks"],
+          "neni": ["Jiné part numbers", "Jiné konfigurace balení"]
+        },
+        {
+          "kategorie": "Operátor",
+          "je": ["Operátor STS (záskok)", "Operátor LCE (stálý)"],
+          "neni": ["Pouze záskoky - chybu udělal i stálý operátor"]
+        },
+        {
+          "kategorie": "Čas",
+          "je": ["Období před 27.11.2025 (před opatřením)"],
+          "neni": ["Po zavedení opatření (zatím žádný výskyt)"]
+        },
+        {
+          "kategorie": "Místo",
+          "je": ["Zařízení Deimos"],
+          "neni": ["Jiná zařízení"]
+        }
+      ]
+    },
+    "nice_to_have": {
+      "doplnujici_dokumentace": [],
+      "potencialni_dopady": "Rizikový objem před opatřením: 200 boxů = 80 000 ks. Breakpoint DN 81069793 z 28.11.2025.",
+      "dalsi_metody": ""
+    }
+  },
+  
+  "D3": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "D3.1",
+          "popis": "Dvojitá kontrola - druhá osoba (OP Deimos nebo GL) provádí kontrolu balení. Školení operátorů provedeno.",
+          "odpovdena_osoba": "",
+          "termin_zavedeni": "2025-11-27",
+          "termin_ukonceni": "Po validaci trvalých nápravných opatření (štítková sada)",
+          "dukaz_ucinnosti": "Záznam školení z 27.11.2025, žádný nový výskyt od zavedení"
+        }
+      ],
+      "posouzeni_rizik": "Opatření je administrativně náročné (vyžaduje druhou osobu), bude nahrazeno self-check systémem (štítková sada)."
+    },
+    "nice_to_have": {
+      "prubezna_dokumentace": [
+        {
+          "datum": "2025-11-27",
+          "poznamka": "Provedeno školení - preventivní opatření, interní školení"
+        }
+      ],
+      "metodicke_stanoveni_rizika": "",
+      "dokumentace_vyberu": ""
+    }
+  },
+  
+  "D4": {
+    "must_have": {
+      "priciny": [
+        {
+          "id": "P1",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "popis": "Proces balení CZ/G1632A-MO (2 sáčky × 200 ks do 1 boxu) neobsahoval bariéru proti nekompletnímu balení - operátor mohl uzavřít box s jedním sáčkem bez jakékoliv detekce.",
+          "kategorie_vda": "Proces/Metoda",
+          "metoda_identifikace": "5× Proč",
+          "zpusob_overeni": "Pasivní - chybu udělali dva různí operátoři (záskok i stálý) nezávisle na sobě",
+          "overeno": true,
+          "children": [
+            "Proč zákazník obdržel box s jedním sáčkem? → Operátor zabalil pouze jeden sáček.",
+            "Proč operátor zabalil pouze jeden sáček? → Lidská chyba - nepozornost (stalo se dvěma různým operátorům).",
+            "Proč nepozornost vedla k odeslání nekompletního boxu? → Proces neumožňoval zpětné ověření kompletnosti.",
+            "Proč proces neumožňoval zpětné ověření? → Neexistoval mechanismus signalizující nekompletnost.",
+            "Proč neexistoval takový mechanismus? → Proces balení neobsahoval bariéru proti nekompletnímu balení."
+          ]
+        },
+        {
+          "id": "P2",
+          "kategorie": "detekce",
+          "uroven": "technicka",
+          "popis": "Neexistoval nezávislý mechanismus odhalující nekompletnost balení před expedicí.",
+          "kategorie_vda": "Proces/Kontrola",
+          "metoda_identifikace": "5× Proč",
+          "zpusob_overeni": "Pasivní - kontrola kompletnosti nebyla definována jako krok procesu",
+          "overeno": true,
+          "children": [
+            "Proč nebyla chyba odhalena před expedicí? → Nikdo nekontroloval kompletnost obsahu boxu.",
+            "Proč nikdo nekontroloval kompletnost? → Kontrola nebyla definována jako samostatný krok.",
+            "Proč nebyla definována? → Proces spoléhal výhradně na správné provedení operátorem.",
+            "Proč proces spoléhal pouze na operátora? → Neexistoval nezávislý mechanismus odhalující nekompletnost."
+          ]
+        },
+        {
+          "id": "P3",
+          "kategorie": "vyskyt",
+          "uroven": "systemova",
+          "popis": "Operace balení do kartonových boxů (vkládání sáčků) není definována v process flow diagramu, a tudíž není zahrnuta v PFMEA ani v kontrolním plánu.",
+          "kategorie_vda": "Systém managementu/Dokumentace",
+          "metoda_identifikace": "5× Proč",
+          "zpusob_overeni": "Pasivní - ověřeno kontrolou dokumentace (PFD, PFMEA, CP)",
+          "overeno": true,
+          "children": [
+            "Proč proces balení neobsahoval bariéru proti chybě? → Riziko nekompletního balení nebylo identifikováno.",
+            "Proč nebylo riziko identifikováno? → Operace nebyla analyzována v PFMEA.",
+            "Proč nebyla analyzována v PFMEA? → Operace není uvedena v process flow diagramu.",
+            "Proč není v process flow diagramu? → Krok 'vložení sáčků do boxu' nebyl při tvorbě dokumentace definován jako samostatná operace."
+          ]
+        }
+      ],
+      "aktualizovane_hodnoceni_rizik": "Riziko opakování je vysoké bez zavedení self-check mechanismu. Dvojitá kontrola je dočasné řešení závislé na dostupnosti druhé osoby."
+    },
+    "nice_to_have": {
+      "dokumentace_postupu": "Analýza prokázala, že problém není v kvalifikaci operátorů (chybu udělal i stálý pracovník), ale v absenci systémové bariéry proti chybě.",
+      "srozumitelnost_pro_nezucastnene": "Dva různí operátoři udělali stejnou chybu → problém je v procesu, ne v lidech."
+    }
+  },
+  
+  "D5": {
+    "must_have": {
+      "opatreni": [
+        {
+          "id": "O1",
+          "pricina_id": "P1, P2",
+          "kategorie": "vyskyt",
+          "uroven": "technicka",
+          "mozna_opatreni": [
+            {
+              "popis": "Dvojitá kontrola druhou osobou",
+              "hodnoceni_efektivnosti": "Účinné, ale administrativně náročné, závislé na dostupnosti druhé osoby"
+            },
+            {
+              "popis": "Vážení boxu před uzavřením",
+              "hodnoceni_efektivnosti": "Účinné, vyžaduje investici do váhy a definici tolerancí"
+            },
+            {
+              "popis": "Štítková sada 1+2 (1× box + 2× sáček)",
+              "hodnoceni_efektivnosti": "Účinné, nízké náklady, integrovaný self-check, nevyžaduje druhou osobu"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Štítková sada 1+2 - každá sada obsahuje 1 štítek na box a 2 štítky na sáčky. Zbylý štítek po zabalení = signál chyby.",
+            "oduvodneni": "Integrovaný self-check mechanismus, nízké náklady, okamžitá zpětná vazba, nevyžaduje dodatečnou pracovní sílu.",
+            "overeni": "Sledování výskytu reklamací na nekompletní balení po zavedení.",
+            "odpovdena_osoba": "",
+            "termin": ""
+          },
+          "tasks": [
+            {
+              "id": "T1",
+              "popis": "Zavedení štítkové sady 1+2",
+              "odpovdena_osoba": "",
+              "termin": "",
+              "typ": "serialni",
+              "status": "pending"
+            },
+            {
+              "id": "T2",
+              "popis": "Vizualizace standardu balení na pracovišti",
+              "odpovdena_osoba": "",
+              "termin": "",
+              "typ": "paralelni",
+              "status": "pending"
+            },
+            {
+              "id": "T3",
+              "popis": "Proškolení operátorů na princip 'zbylý štítek = STOP'",
+              "odpovdena_osoba": "",
+              "termin": "",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "O2",
+          "pricina_id": "P3",
+          "kategorie": "vyskyt",
+          "uroven": "systemova",
+          "mozna_opatreni": [
+            {
+              "popis": "Aktualizace výrobní dokumentace (PFD → PFMEA → CP)",
+              "hodnoceni_efektivnosti": "Nezbytné pro systémové zajištění, jednorázová akce"
+            }
+          ],
+          "vybrane_opatreni": {
+            "popis": "Aktualizace výrobní dokumentace (PFD → PFMEA → CP) - doplnění kroku 'balení sáčků do boxu' včetně kontrolního mechanismu štítkové sady.",
+            "oduvodneni": "Systémové zajištění, že riziko bude analyzováno a kontrolní mechanismus bude definován v dokumentaci.",
+            "overeni": "Audit aktualizované dokumentace.",
+            "odpovdena_osoba": "",
+            "termin": ""
+          },
+          "tasks": [
+            {
+              "id": "T4",
+              "popis": "Aktualizace výrobní dokumentace (PFD → PFMEA → CP)",
+              "odpovdena_osoba": "",
+              "termin": "",
+              "typ": "serialni",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "posouzeni_vedlejsich_ucinku": "Neidentifikovány žádné negativní vedlejší účinky. Štítková sada může mírně zvýšit náklady na štítky, ale úspora z odstranění dvojité kontroly to kompenzuje.",
+      "akcni_plan": "Shrnutí: Pro technické příčiny (chybějící bariéra proti nekompletnímu balení a chybějící mechanismus detekce) bylo zvoleno společné opatření - zavedení štítkové sady 1+2, kde zbylý štítek signalizuje chybu. Pro systémovou příčinu bude aktualizována výrobní dokumentace. Ověření účinnosti bude provedeno sledováním reklamací po zavedení a auditem dokumentace."
+    },
+    "nice_to_have": {
+      "rozhodovaci_matice": [],
+      "dokumentace_vyberu": "Štítková sada vybrána jako optimální řešení - kombinuje nízké náklady, okamžitou zpětnou vazbu a nezávislost na dostupnosti druhé osoby."
+    }
+  },
+  
+  "D6": {
+    "must_have": {
+      "realizace": [
+        {
+          "opatreni_id": "T1",
+          "stav_realizace": "pending",
+          "datum_realizace": "",
+          "zpusob_validace": "Sledování výskytu reklamací na nekompletní balení",
+          "vysledek_validace": ""
+        },
+        {
+          "opatreni_id": "T2",
+          "stav_realizace": "pending",
+          "datum_realizace": "",
+          "zpusob_validace": "Kontrola umístění vizualizace na pracovišti",
+          "vysledek_validace": ""
+        },
+        {
+          "opatreni_id": "T3",
+          "stav_realizace": "pending",
+          "datum_realizace": "",
+          "zpusob_validace": "Záznam školení",
+          "vysledek_validace": ""
+        }
+      ],
+      "zruseni_okamzitych_opatreni": [
+        {
+          "opatreni_id": "D3.1",
+          "stav": "v_platnosti",
+          "datum_zruseni": "",
+          "oduvodneni": "Bude zrušeno po validaci štítkové sady"
+        }
+      ]
+    },
+    "nice_to_have": {
+      "dokumentace_validace": [],
+      "srozumitelnost_validace": "",
+      "trvale_zakotveni": ""
+    }
+  },
+  
+  "D7": {
+    "must_have": {
+      "srovnatelne_produkty_procesy": ["Všechny produkty s konfigurací vícenásobného balení (2+ sáčky/box)"],
+      "aktualizovane_dokumenty": [
+        {
+          "nazev": "Výrobní dokumentace (PFD → PFMEA → CP)",
+          "zpusob_aktualizace": "Doplnění kroku 'balení sáčků do boxu' včetně kontrolního mechanismu štítkové sady. FMEA prevence: Štítková sada 1+2 - zbylý štítek = nekompletní balení",
+          "odpovdena_osoba": "",
+          "datum": "",
+          "dostupnost": false
+        }
+      ],
+      "posouzeni_aplikovatelnosti": "Štítková sada je aplikovatelná na všechny produkty s vícenásobným balením."
+    },
+    "nice_to_have": {
+      "lessons_learned": {
+        "odpovdena_osoba": "",
+        "prijeti_potvrzeno": false,
+        "datum": ""
+      },
+      "dokumentace_prenosu": ""
+    }
+  },
+  
+  "D8": {
+    "must_have": {
+      "stav_opatreni": [
+        {
+          "opatreni_id": "D3.1",
+          "stav": "dokonceno"
+        },
+        {
+          "opatreni_id": "T1",
+          "stav": "v_prubhu"
+        },
+        {
+          "opatreni_id": "T2",
+          "stav": "v_prubhu"
+        },
+        {
+          "opatreni_id": "T3",
+          "stav": "v_prubhu"
+        },
+        {
+          "opatreni_id": "T4",
+          "stav": "v_prubhu"
+        }
+      ],
+      "uvolneni": {
+        "datum": "",
+        "sponzor": "",
+        "vedouci_tymu": ""
+      },
+      "oceneni_tymu": false,
+      "rozpusteni_tymu": false
+    },
+    "nice_to_have": {
+      "zpusob_oceneni": "",
+      "ziskane_poznatky": [
+        "Chybu udělali dva různí operátoři (záskok i stálý) - problém je v procesu, ne v lidech",
+        "Self-check systém (štítková sada) je efektivnější než dvojitá kontrola druhou osobou",
+        "Operace balení musí být zahrnuta v PFD/PFMEA/CP"
+      ],
+      "samohodnoceni": {
+        "provedeno": false,
+        "vysledek_procent": 0
+      },
+      "externi_hodnoceni": {
+        "provedeno": false,
+        "hodnotitel": ""
+      },
+      "zavrecne_jednani": {
+        "datum": "",
+        "ucastnici": []
+      }
+    }
+  }
+}
